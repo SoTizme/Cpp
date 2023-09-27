@@ -1,21 +1,36 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   PhoneBook.hpp                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: shilal <shilal@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/09/26 19:39:36 by shilal            #+#    #+#             */
+/*   Updated: 2023/09/27 01:21:42 by shilal           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef PHONEBOOK_HPP
 #define PHONEBOOK_HPP
 
 #include <iostream>
+#include <iomanip>
 #include "Contact.hpp"
 
 class PhoneBook {
 
     Contact Tab[8];
-
+    int          id;
+    std::string  a;
+    std::string  b;
+    std::string  c;
+    std::string  d;
+    std::string  e;
+    
+    int i;
+    
     public :
-        int          id;
-        std::string  a;
-        std::string  b;
-        std::string  c;
-        std::string  d;
-        std::string  e;
-
+    
         PhoneBook(void);
         ~PhoneBook(void);
 
