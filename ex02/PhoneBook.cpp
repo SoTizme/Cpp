@@ -6,12 +6,13 @@
 /*   By: shilal <shilal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/26 19:40:00 by shilal            #+#    #+#             */
-/*   Updated: 2023/09/27 03:32:43 by shilal           ###   ########.fr       */
+/*   Updated: 2023/09/28 19:11:42 by shilal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
 #include "Contact.hpp"
+#include <stdlib.h>
 
 void    end_of_file(void){
     if (std::cin.eof())
@@ -19,13 +20,24 @@ void    end_of_file(void){
 }
 
 int    is_digit(std::string d){
-    std::cout << "RUN" << std::endl;
     for (int i = 0; d[i]; i++)
 	{
 		if (isdigit(d[i]) == 0)
+		{
+			std::cout << "!     Error: Number Phone Is Not Digit     !" << std::endl;
 			return (-1);
+		}
 	}
     return (1);
+}
+
+int	if_empty(std::string s){
+	if (s == "")
+	{
+		std::cout << "!               Error: Empty              !" << std::endl;
+		return (-1);	
+	}
+	return (1);
 }
 
 PhoneBook::PhoneBook(void){
@@ -47,32 +59,38 @@ PhoneBook::~PhoneBook(void){
 
 void    PhoneBook::ft_add(void)
 {
-	// check if empty after per line 
-	std::cout << "Enter First name"<< std::endl; getline(std::cin, a); end_of_file();
-	std::cout << "Enter Last name "<< std::endl; getline(std::cin, b); end_of_file();
-	std::cout << "Enter Nickname"<< std::endl; getline(std::cin, c); end_of_file();
-	std::cout << "Enter Phone number"<< std::endl; getline(std::cin, d); end_of_file();
-    if (is_digit(d) == -1)
-    {
-        std::cout << "!     Error: Number Phone Is Not Digit     !" << std::endl;
-        return ;
-    }
-	std::cout << "Enter Darkest secret >>"<< std::endl; getline(std::cin, e); end_of_file();
-	if (PhoneBook::a == "" || PhoneBook::b == "" || PhoneBook::c == "" || PhoneBook::d == "" || PhoneBook::e == "")
-		std::cout << "!           Error: Empty filed             !"<< std::endl;
-	else
+	while (1)
 	{
-		this->id %= 8;
-		this->Tab[this->id].set_contact(this->id + 1, a, b, c, d, e);
-        if (this->i < 8)
-            this->i++;
-        this->id++;
 		std::cout << " __________________________________________" << std::endl;
 		std::cout << "|                                          |" << std::endl;
-		std::cout << "|      The Contact ADD in Successfuly      |"<< std::endl;
-        std::cout << "|__________________________________________|" << std::endl;
+		std::cout << "|             Enter New Contact            |" << std::endl;
+		std::cout << "|__________________________________________|" << std::endl;
+		std::cout << "Enter First name "<< std::endl; getline(std::cin, a); end_of_file();
+		if (if_empty(a) == -1)
+			continue ;
+		std::cout << "Enter Last name "<< std::endl; getline(std::cin, b); end_of_file();
+		if (if_empty(b) == -1)
+			continue ;
+		std::cout << "Enter Nickname "<< std::endl; getline(std::cin, c); end_of_file();
+		if (if_empty(c) == -1)
+			continue ;
+		std::cout << "Enter Phone number"<< std::endl; getline(std::cin, d); end_of_file();
+		if (if_empty(d) == -1 || is_digit(d) == -1)
+			continue ;
+		std::cout << "Enter Darkest secret >>"<< std::endl; getline(std::cin, e); end_of_file();
+		if (if_empty(e) == -1)
+			continue ;
+		break ;
 	}
-	// if thir is a error in formation print again
+	this->id %= 8;
+	this->Tab[this->id].set_contact(this->id + 1, a, b, c, d, e);
+	if (this->i < 8)
+		this->i++;
+	this->id++;
+	std::cout << " __________________________________________" << std::endl;
+	std::cout << "|                                          |" << std::endl;
+	std::cout << "|      The Contact ADD in Successfuly      |"<< std::endl;
+	std::cout << "|__________________________________________|" << std::endl;
 	return ;
 }
 
@@ -89,18 +107,28 @@ void    PhoneBook::ft_search(void)
     for (int i = 0; i < this->i; i++){
         this->Tab[i].print_all_contact();
     }
-	std::cout << " __________________________________________" << std::endl;
-	std::cout << "|                                          |" << std::endl;
-	std::cout << "|          Enter Index of Cantact          |" << std::endl;
-    std::cout << "|__________________________________________|" << std::endl;
-	std::getline(std::cin, s); end_of_file();
-	if (s.length() == 1 && s.find_first_not_of("12345678"))
+	while (1)
 	{
-        nb = (int)(s[0] - 48) - 1;
-        this->Tab[nb].get_contact();
-	}
-	else
-	{
-		std::cout << "!    Error: Enter index between (1 -> 8)   !" << std::endl;
+		std::cout << " __________________________________________" << std::endl;
+		std::cout << "|                                          |" << std::endl;
+		std::cout << "|          Enter Index of Cantact          |" << std::endl;
+		std::cout << "|__________________________________________|" << std::endl;
+		std::getline(std::cin, s); end_of_file();
+		if (s.length() == 1 && s.find_first_not_of("12345678"))
+		{
+			nb = (int)(s[0] - 48) - 1;
+			if (nb > this->i)
+			{
+				std::cout << "!      Ther's no Cantact in this Index     !" << std::endl;
+				continue;
+			}	
+			else
+				return (this->Tab[nb].get_contact());
+		}
+		else
+		{
+			std::cout << "!    Error: Enter index between (1 -> 8)   !" << std::endl;
+			continue ;
+		}
 	}
 }
