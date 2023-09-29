@@ -6,11 +6,16 @@
 /*   By: shilal <shilal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/28 23:19:49 by shilal            #+#    #+#             */
-/*   Updated: 2023/09/29 16:41:14 by shilal           ###   ########.fr       */
+/*   Updated: 2023/09/29 17:05:45 by shilal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "Zombie.hpp"
+
 int main(void)
 {
+    Zombie a;
+    a.newZombie("souad");
+    a.announce();
     return (0);
 }
