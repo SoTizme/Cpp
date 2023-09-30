@@ -1,6 +1,6 @@
 NAME = Brainz
 
-SRC = main.cpp newZombie.cpp Zombie.cpp
+SRC = main.cpp newZombie.cpp Zombie.cpp randomChump.cpp
 
 RM = rm -f
 CC = c++

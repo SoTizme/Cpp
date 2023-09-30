@@ -6,14 +6,13 @@
 /*   By: shilal <shilal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/29 16:12:31 by shilal            #+#    #+#             */
-/*   Updated: 2023/09/29 17:09:03 by shilal           ###   ########.fr       */
+/*   Updated: 2023/09/30 23:01:31 by shilal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
 
-Zombie* Zombie::newZombie( std::string name ){
-   Zombie *n = new Zombie;
-   
-   return (n); 
+Zombie* newZombie( std::string name ){
+   Zombie *n = new Zombie(name);
+   return (n);
 }
