@@ -1,6 +1,6 @@
 NAME = Unnecessary_violence
 
-SRC = main.cpp Weapon.cpp
+SRC = main.cpp Weapon.cpp HumanA.cpp
 
 RM = rm -f
 CC = c++
