@@ -1,6 +1,6 @@
-NAME = Brain
+NAME = Unnecessary_violence
 
-SRC = main.cpp
+SRC = main.cpp Weapon.cpp
 
 RM = rm -f
 CC = c++
