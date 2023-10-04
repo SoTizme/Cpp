@@ -6,7 +6,7 @@
 /*   By: shilal <shilal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/01 03:06:40 by shilal            #+#    #+#             */
-/*   Updated: 2023/10/01 21:15:06 by shilal           ###   ########.fr       */
+/*   Updated: 2023/10/04 02:17:09 by shilal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,11 @@
 class HumanA {
 
     std::string str;
-    Weapon *aram;
+    Weapon *ptr_type;
 
     public :
 
-        HumanA(std::string s, Weapon arm);
+        HumanA(std::string s, Weapon &am);
         ~HumanA(void);
 
         void attack(void);
