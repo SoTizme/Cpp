@@ -1,23 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   HumanA.cpp                                         :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: shilal <shilal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/01 03:06:47 by shilal            #+#    #+#             */
-/*   Updated: 2023/10/05 01:02:39 by shilal           ###   ########.fr       */
+/*   Created: 2023/10/05 01:35:42 by shilal            #+#    #+#             */
+/*   Updated: 2023/10/05 01:42:23 by shilal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "HumanA.hpp"
+#include "filestream.hpp"
 
-HumanA::HumanA(std::string s, Weapon& am)
-{
-    this->str = s;
-    this->ref_type = &am;
-}
-
-void HumanA::attack(void){
-    std::cout << this->str << " attacks with their "<< this->ref_type->getType() <<std::endl;
+int main(int ac, char **av){
+    if (ac != 3)
+        std::cout << "Enter 3 Parameters: [filename] [string1] [string2]" << std::endl;
+    else{
+        
+    }
 }

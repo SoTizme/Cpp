@@ -1,6 +1,6 @@
-NAME = Unnecessary_violence
+NAME = Sed _is_for_losers
 
-SRC = main.cpp Weapon.cpp HumanB.cpp HumanA.cpp
+SRC = main.cpp 
 
 RM = rm -f
 CC = c++

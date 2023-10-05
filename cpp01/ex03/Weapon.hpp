@@ -6,7 +6,7 @@
 /*   By: shilal <shilal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/01 02:13:03 by shilal            #+#    #+#             */
-/*   Updated: 2023/10/04 01:27:32 by shilal           ###   ########.fr       */
+/*   Updated: 2023/10/05 01:02:25 by shilal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ class Weapon{
     public :
 
         Weapon(std::string ne);
+        ~Weapon(void){}
 
         const std::string getType(void);
         void setType(std::string s);

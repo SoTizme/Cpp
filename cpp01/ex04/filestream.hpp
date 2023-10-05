@@ -1,23 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   HumanA.cpp                                         :+:      :+:    :+:   */
+/*   filestream.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: shilal <shilal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/01 03:06:47 by shilal            #+#    #+#             */
-/*   Updated: 2023/10/05 01:02:39 by shilal           ###   ########.fr       */
+/*   Created: 2023/10/05 01:35:46 by shilal            #+#    #+#             */
+/*   Updated: 2023/10/05 01:37:34 by shilal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "HumanA.hpp"
+#ifndef FILESTREAM_HPP
+#define FILESTREAM_HPP
 
-HumanA::HumanA(std::string s, Weapon& am)
-{
-    this->str = s;
-    this->ref_type = &am;
-}
+#include <iostream>
+#include <iomanip>
 
-void HumanA::attack(void){
-    std::cout << this->str << " attacks with their "<< this->ref_type->getType() <<std::endl;
-}
+
+#endif
