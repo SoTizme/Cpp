@@ -20,11 +20,11 @@
 class HumanA {
 
     std::string str;
-    Weapon *ref_type;
+    Weapon& ref_type;
 
     public :
 
-        HumanA(std::string s, Weapon &am);
+        HumanA(std::string s, Weapon &am): str(s), ref_type(am){}
         ~HumanA(void){}
 
         void attack(void);

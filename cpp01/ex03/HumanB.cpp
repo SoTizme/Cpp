@@ -12,12 +12,10 @@
 
 #include "HumanB.hpp"
 
-HumanB::HumanB(std::string s){
-    this->str = s;
-}
-
 void HumanB::attack(void){
+
     std::cout << this->str << " attacks with their ";
+
     if (this->ptr_type->getType() != "")
         std::cout << this->ptr_type->getType() <<std::endl;
     else

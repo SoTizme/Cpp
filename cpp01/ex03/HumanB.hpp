@@ -24,7 +24,7 @@ class HumanB {
 
     public :
 
-        HumanB(std::string s);
+        HumanB(std::string s): str(s) {}
         ~HumanB(void){}
 
     void attack(void);

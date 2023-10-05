@@ -12,12 +12,6 @@
 
 #include "HumanA.hpp"
 
-HumanA::HumanA(std::string s, Weapon& am)
-{
-    this->str = s;
-    this->ref_type = &am;
-}
-
 void HumanA::attack(void){
-    std::cout << this->str << " attacks with their "<< this->ref_type->getType() <<std::endl;
+    std::cout << this->str << " attacks with their "<< this->ref_type.getType() <<std::endl;
 }
