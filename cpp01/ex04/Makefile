@@ -1,6 +1,6 @@
 NAME = Sed_is_for_losers
 
-SRC = main.cpp 
+SRC = main.cpp filestream.cpp
 
 RM = rm -f
 CC = c++
