@@ -6,7 +6,7 @@
 /*   By: shilal <shilal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/05 01:35:46 by shilal            #+#    #+#             */
-/*   Updated: 2023/10/05 01:37:34 by shilal           ###   ########.fr       */
+/*   Updated: 2023/10/05 19:43:18 by shilal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 
 #include <iostream>
 #include <iomanip>
+#include <fstream>
+
 
 
 #endif
