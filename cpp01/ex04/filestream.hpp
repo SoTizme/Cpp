@@ -16,16 +16,20 @@
 #include <iostream>
 #include <iomanip>
 #include <fstream>
+#include <sys/stat.h>
 
 class replace {
 
-        std::fstream file;
-        std::string s1;
-        std::string s2;
+        std::ifstream file;
+        std::ofstream r_file;
+        std :: string name;
         
         public :
-            replace(char *f_name, std::string str1, std::string str2);
+            replace(std::string f_name, std::string str1, std::string str2);
             ~replace(void);
+
+        bool open_files();
+        
 };
 
 #endif

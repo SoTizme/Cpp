@@ -12,33 +12,49 @@
 
 #include "filestream.hpp"
 
-replace::replace(char *f_name, std::string str1, std::string str2) : s1(str1), s2(str2)
+bool replace::open_files(void){
+
+    this->file.open(this->name);
+    if (!this->file.is_open()){
+        std::cerr << "Error : opening file" << std::endl;
+        return (false);
+    }
+
+    this->name.insert(this->name.length(), ".replace");
+    this->r_file.open (this->name);
+    if (!this->r_file.is_open()){
+        std::cerr << "Error : opening file 2" << std::endl;
+        return (false);
+    }
+    return (true);
+}
+
+
+replace::replace(std::string f_name, std::string str1, std::string str2) : name(f_name)
 {
     std::string str;
-    std::string r_str;
-    int pos = 0;
-    int len = str1.length();
+    int pos;
 
-    this->file.open (f_name);
-    if (!this->file.is_open())
-        std::cerr << "Error : Filename doesn't exist" << std::endl;
-    while (!this->file.eof())
+    if (!open_files())
+        return ;
+    while (std::getline(this->file, str))
     {
-        std::getline(this->file, str);
-        std::cout << str << std::endl;
-        pos = str.find(str1);
+        pos = 0;
+        pos = str.find(str1, pos);
         while (pos != -1)
         {
-            std::cout << len << std::endl;
-            std::cout << pos << std::endl;
-            r_str = str.substr((pos + len), str.length());
-            r_str.insert(0,str2);
-            std::cout << r_str << std::endl;
-            pos = str.find(r_str);
+            str.erase(pos, str1.length());
+            str.insert(pos, str2);
+            pos = str.find(str1, pos + str2.length());
         }
+        this->r_file << str;
+        if (this->file.eof())
+            break;
+        this->r_file << std::endl;
     }
 }
 
 replace::~replace(){
     this->file.close();
+    this->r_file.close();
 }
