@@ -6,7 +6,7 @@
 /*   By: shilal <shilal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/26 19:40:00 by shilal            #+#    #+#             */
-/*   Updated: 2023/09/28 19:11:42 by shilal           ###   ########.fr       */
+/*   Updated: 2023/10/11 22:30:43 by shilal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,9 +52,10 @@ PhoneBook::PhoneBook(void){
 }
 
 PhoneBook::~PhoneBook(void){
-   std::cout << "-----------------------------" << std::endl;
-   std::cout << "-----------Good by-----------" << std::endl;
-   std::cout << "-----------------------------" << std::endl;
+	std::cout << " __________________________________________" << std::endl;
+	std::cout << "|                                          |" << std::endl;
+	std::cout << "|~~~~~~~~~~~~~~> See U Soon <~~~~~~~~~~~~~~|" << std::endl;
+	std::cout << "|__________________________________________|" << std::endl;
 }
 
 void    PhoneBook::ft_add(void)
@@ -77,7 +78,7 @@ void    PhoneBook::ft_add(void)
 		std::cout << "Enter Phone number"<< std::endl; getline(std::cin, d); end_of_file();
 		if (if_empty(d) == -1 || is_digit(d) == -1)
 			continue ;
-		std::cout << "Enter Darkest secret >>"<< std::endl; getline(std::cin, e); end_of_file();
+		std::cout << "Enter Darkest secret"<< std::endl; getline(std::cin, e); end_of_file();
 		if (if_empty(e) == -1)
 			continue ;
 		break ;

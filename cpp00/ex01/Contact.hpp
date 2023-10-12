@@ -6,12 +6,15 @@
 /*   By: shilal <shilal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/26 19:39:39 by shilal            #+#    #+#             */
-/*   Updated: 2023/09/28 18:49:42 by shilal           ###   ########.fr       */
+/*   Updated: 2023/10/11 22:22:30 by shilal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CONTACT_HPP
 #define CONTACT_HPP
+
+#include <iostream>
+#include <iomanip>
 
 class Contact {
 
