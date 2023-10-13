@@ -6,7 +6,7 @@
 /*   By: shilal <shilal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/26 19:40:00 by shilal            #+#    #+#             */
-/*   Updated: 2023/10/12 21:39:11 by shilal           ###   ########.fr       */
+/*   Updated: 2023/10/13 21:40:32 by shilal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,19 +66,19 @@ void    PhoneBook::ft_add(void)
 		std::cout << "|                                          |" << std::endl;
 		std::cout << "|             Enter New Contact            |" << std::endl;
 		std::cout << "|__________________________________________|" << std::endl;
-		std::cout << "Enter First name "<< std::endl; getline(std::cin, a); end_of_file();
+		std::cout << "Enter First name "<< std::endl; std::getline(std::cin, a); end_of_file();
 		if (if_empty(a) == -1)
 			continue ;
-		std::cout << "Enter Last name "<< std::endl; getline(std::cin, b); end_of_file();
+		std::cout << "Enter Last name "<< std::endl; std::getline(std::cin, b); end_of_file();
 		if (if_empty(b) == -1)
 			continue ;
-		std::cout << "Enter Nickname "<< std::endl; getline(std::cin, c); end_of_file();
+		std::cout << "Enter Nickname "<< std::endl; std::getline(std::cin, c); end_of_file();
 		if (if_empty(c) == -1)
 			continue ;
-		std::cout << "Enter Phone number"<< std::endl; getline(std::cin, d); end_of_file();
+		std::cout << "Enter Phone number"<< std::endl; std::getline(std::cin, d); end_of_file();
 		if (if_empty(d) == -1 || is_digit(d) == -1)
 			continue ;
-		std::cout << "Enter Darkest secret"<< std::endl; getline(std::cin, e); end_of_file();
+		std::cout << "Enter Darkest secret"<< std::endl; std::getline(std::cin, e); end_of_file();
 		if (if_empty(e) == -1)
 			continue ;
 		break ;

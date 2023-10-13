@@ -6,7 +6,7 @@
 /*   By: shilal <shilal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/26 19:39:33 by shilal            #+#    #+#             */
-/*   Updated: 2023/09/28 22:45:53 by shilal           ###   ########.fr       */
+/*   Updated: 2023/10/13 21:39:53 by shilal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int main()
 		std::cout << "|                                          |" << std::endl;
 		std::cout << "|~~~~~~~~~~>|ADD| |SEARCH| |EXIT|<~~~~~~~~~|" << std::endl;
 		std::cout << "|__________________________________________|" << std::endl;
-		std:: getline(std::cin, str);
+		std::getline(std::cin, str);
 		if (std::cin.eof())
 			exit (0);
 		if (str.compare("ADD") == 0)

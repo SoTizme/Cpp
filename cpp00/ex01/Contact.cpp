@@ -6,7 +6,7 @@
 /*   By: shilal <shilal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/28 18:01:33 by shilal            #+#    #+#             */
-/*   Updated: 2023/10/12 21:29:08 by shilal           ###   ########.fr       */
+/*   Updated: 2023/10/13 21:32:18 by shilal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ std::string	if_dot(std::string str){
 }
 
 void Contact::set_contact(int id, std::string a, std::string b, std::string c, std::string d, std::string e){
+
 	this->index =  id;
 	this->first_name = a;
 	this->last_name = b;
@@ -29,6 +30,7 @@ void Contact::set_contact(int id, std::string a, std::string b, std::string c, s
 }
 
 void	Contact::print_all_contact(void){
+
 	std::cout << std::setw(10) << index << "|";
 	std::cout << std::setw(10) << if_dot(first_name) << "|";
 	std::cout << std::setw(10) << if_dot(last_name) << "|";
