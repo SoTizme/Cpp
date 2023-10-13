@@ -1,10 +1,10 @@
-NAME = Brain
+NAME = Brainz
 
 SRC = main.cpp
 
 RM = rm -f
 CC = c++
-CFLAG = -std=c++98 -Wall -Wextra -Werror -fsanitize=address -g3
+CFLAG = -std=c++98 -Wall -Wextra -Werror
 
 all : $(NAME)
 

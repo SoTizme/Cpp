@@ -4,7 +4,7 @@ SRCS = main.cpp Zombie.cpp zombieHorde.cpp
 
 RM = rm -f
 CC = c++
-CFLAGS = -std=c++98 -Wall -Wextra -Werror -fsanitize=address -g3
+CFLAGS = -std=c++98 -Wall -Wextra -Werror
 
 all: $(NAME)
 
