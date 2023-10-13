@@ -6,7 +6,7 @@
 /*   By: shilal <shilal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 21:27:56 by shilal            #+#    #+#             */
-/*   Updated: 2023/10/13 03:54:52 by shilal           ###   ########.fr       */
+/*   Updated: 2023/10/13 04:00:25 by shilal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,11 +41,11 @@ void Harl::error(void){
 
 int    check_(std::string str){
 
-    ST table[4] = {{"DEBUG"}, {"INFO"}, {"WARNING"}, {"ERROR"}};
+    std::string table[4] = {"DEBUG", "INFO", "WARNING", "ERROR"};
 
     for (int i = 0; i < 4; i++)
     {
-        if (str == table[i].name)
+        if (str == table[i])
             return (i+1);
     }
     return (-1);

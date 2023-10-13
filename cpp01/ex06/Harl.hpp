@@ -6,7 +6,7 @@
 /*   By: shilal <shilal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 21:28:41 by shilal            #+#    #+#             */
-/*   Updated: 2023/10/13 03:47:18 by shilal           ###   ########.fr       */
+/*   Updated: 2023/10/13 04:00:30 by shilal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,11 +30,6 @@ class Harl {
     public :
         void complain(std::string level);
         
-};
-
-struct ST
-{
-    std::string name;
 };
 
 #endif
