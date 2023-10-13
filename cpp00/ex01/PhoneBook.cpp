@@ -6,7 +6,7 @@
 /*   By: shilal <shilal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/26 19:40:00 by shilal            #+#    #+#             */
-/*   Updated: 2023/10/11 22:30:43 by shilal           ###   ########.fr       */
+/*   Updated: 2023/10/12 21:39:11 by shilal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,9 +40,7 @@ int	if_empty(std::string s){
 	return (1);
 }
 
-PhoneBook::PhoneBook(void){
-	this->id = 0;
-	this->i = 0;
+PhoneBook::PhoneBook(void) : id(0), i(0){
 
 	std::cout << " __________________________________________" << std::endl;
 	std::cout << "|                                          |" << std::endl;
@@ -54,7 +52,9 @@ PhoneBook::PhoneBook(void){
 PhoneBook::~PhoneBook(void){
 	std::cout << " __________________________________________" << std::endl;
 	std::cout << "|                                          |" << std::endl;
+	std::cout << "|                                          |" << std::endl;
 	std::cout << "|~~~~~~~~~~~~~~> See U Soon <~~~~~~~~~~~~~~|" << std::endl;
+	std::cout << "|                                          |" << std::endl;
 	std::cout << "|__________________________________________|" << std::endl;
 }
 

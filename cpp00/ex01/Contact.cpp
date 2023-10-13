@@ -6,7 +6,7 @@
 /*   By: shilal <shilal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/28 18:01:33 by shilal            #+#    #+#             */
-/*   Updated: 2023/09/28 18:50:10 by shilal           ###   ########.fr       */
+/*   Updated: 2023/10/12 21:29:08 by shilal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,18 +29,18 @@ void Contact::set_contact(int id, std::string a, std::string b, std::string c, s
 }
 
 void	Contact::print_all_contact(void){
-	std::cout << std::setw(10) << this->index << "|";
-	std::cout << std::setw(10) << if_dot(this->first_name) << "|";
-	std::cout << std::setw(10) << if_dot(this->last_name) << "|";
-	std::cout << std::setw(10) << if_dot(this->nickname) << "|";
+	std::cout << std::setw(10) << index << "|";
+	std::cout << std::setw(10) << if_dot(first_name) << "|";
+	std::cout << std::setw(10) << if_dot(last_name) << "|";
+	std::cout << std::setw(10) << if_dot(nickname) << "|";
 	std::cout << std::endl;
 }
 
 void Contact::get_contact(void){
 
-	std::cout << "First Name : " << this->first_name << std::endl;
-	std::cout << "Last Name : " << this->last_name << std::endl;
-	std::cout << "Nickname : " << this->nickname << std::endl;
-	std::cout << "Phone Number : " << this->phone_number << std::endl;
-	std::cout << "Darkest Secret : " << this->darkest_secret << std::endl;
+	std::cout << "First Name : " << first_name << std::endl;
+	std::cout << "Last Name : " << last_name << std::endl;
+	std::cout << "Nickname : " << nickname << std::endl;
+	std::cout << "Phone Number : " << phone_number << std::endl;
+	std::cout << "Darkest Secret : " << darkest_secret << std::endl;
 }

@@ -6,7 +6,7 @@
 /*   By: shilal <shilal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 22:42:20 by shilal            #+#    #+#             */
-/*   Updated: 2023/10/11 21:26:58 by shilal           ###   ########.fr       */
+/*   Updated: 2023/10/13 03:42:48 by shilal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ class Harl {
 
     private:
 
-        int level;    
         void debug(void);
         void info(void);
         void warning(void);
@@ -31,5 +30,13 @@ class Harl {
         void complain(std::string level);
         
 };
+
+struct ST
+{
+    std::string name;
+
+    void (Harl::*ptr)(void);
+};
+
 
 #endif

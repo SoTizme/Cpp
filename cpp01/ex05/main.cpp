@@ -6,7 +6,7 @@
 /*   By: shilal <shilal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 22:40:22 by shilal            #+#    #+#             */
-/*   Updated: 2023/10/11 21:27:33 by shilal           ###   ########.fr       */
+/*   Updated: 2023/10/13 02:13:41 by shilal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,6 @@ int main(int ac, char **av)
     else
     {
         Harl lev;
-
-        void (Harl::* cmp)( std::string ) = &Harl::complain;
-        (lev.*cmp)(av[1]);
+        lev.complain(av[1]);
     }
 }

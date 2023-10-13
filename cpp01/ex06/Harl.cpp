@@ -6,25 +6,12 @@
 /*   By: shilal <shilal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 21:27:56 by shilal            #+#    #+#             */
-/*   Updated: 2023/10/11 21:38:34 by shilal           ###   ########.fr       */
+/*   Updated: 2023/10/13 03:54:52 by shilal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Harl.hpp"
 
-int    check_(std::string str){
-    
-    if (str == "DEBUG")
-        return (1);
-    else if (str == "INFO")
-        return (2); 
-    else if (str == "WARNING")    
-        return (3);
-    else if (str == "ERROR")
-        return (4);
-    else
-        return (-1);
-}
 
 void    Harl::debug(void){
     std::cout << "[ DEBUG ]" << std::endl;
@@ -50,20 +37,32 @@ void Harl::warning(void){
 void Harl::error(void){
      std::cout << "[ ERROR ]" << std::endl;
     std::cout << "This is unacceptable! I want to speak to the manager now." << std::endl;
-    std::cout << std::endl;
+}
+
+int    check_(std::string str){
+
+    ST table[4] = {{"DEBUG"}, {"INFO"}, {"WARNING"}, {"ERROR"}};
+
+    for (int i = 0; i < 4; i++)
+    {
+        if (str == table[i].name)
+            return (i+1);
+    }
+    return (-1);
 }
 
 void Harl::complain(std::string level){
 
-    this->level = check_(level);
+    step = check_(level);
 
-    switch (this->level)
+    switch (step)
     {
-        case 1 : Harl::debug();
-        case 2 : Harl::info();
-        case 3 : Harl::warning();
-        case 4 : Harl::error();
+        case 1 : this->debug();
+        case 2 : this->info();
+        case 3 : this->warning();
+        case 4 : this->error();
             break;
         default: std::cout << "[ Probably complaining about insignificant problems ]" <<std::endl;
+            break;
     }
 }

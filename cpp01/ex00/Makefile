@@ -4,7 +4,7 @@ SRC = main.cpp newZombie.cpp Zombie.cpp randomChump.cpp
 
 RM = rm -f
 CC = c++
-CFLAG = -std=c++98 -Wall -Wextra -Werror -fsanitize=address -g3
+CFLAG = -std=c++98 -Wall -Wextra -Werror # -fsanitize=address -g3
 
 all : $(NAME)
 
