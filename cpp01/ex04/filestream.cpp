@@ -6,12 +6,12 @@
 /*   By: shilal <shilal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/05 01:35:53 by shilal            #+#    #+#             */
-/*   Updated: 2023/10/13 21:40:59 by shilal           ###   ########.fr       */
+/*   Updated: 2023/10/14 02:50:27 by shilal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "filestream.hpp"
-
+                                                                                    
 bool replace::open_files(void){
 
     this->file.open(this->name);
