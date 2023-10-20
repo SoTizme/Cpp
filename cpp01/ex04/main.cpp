@@ -6,7 +6,7 @@
 /*   By: shilal <shilal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/05 01:35:42 by shilal            #+#    #+#             */
-/*   Updated: 2023/10/06 16:54:55 by shilal           ###   ########.fr       */
+/*   Updated: 2023/10/15 08:49:59 by shilal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,12 +26,20 @@ bool    is_Directory(char *path)
     return (true);
 }
 
+
 int main(int ac, char **av)
 {
+    std::string s;
     if (ac != 4)
         std::cerr << "Error : enter 3 Parameters: [filename] [string1] [string2]" << std::endl;
-    else{
-        if (is_Directory(av[1]))
-            replace r(av[1], av[2], av[3]);
+    else
+    {
+        s = av[2];
+        if (s == "")
+            std::cerr << "Error : You cannot use a empty string" << std::endl;
+        else{
+            if (is_Directory(av[1]))
+                replace r(av[1], av[2], av[3]);
+        }
     }
 }

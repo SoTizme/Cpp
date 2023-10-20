@@ -6,7 +6,7 @@
 /*   By: shilal <shilal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 22:45:05 by shilal            #+#    #+#             */
-/*   Updated: 2023/10/13 03:41:45 by shilal           ###   ########.fr       */
+/*   Updated: 2023/10/15 09:02:11 by shilal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,16 +37,17 @@ void Harl::error(void){
 
 void Harl::complain(std::string level){
 
-    ST table[4] = {{"DEBUG", &Harl::debug}, {"INFO", &Harl::info}, {"WARNING", &Harl::warning}, {"ERROR", &Harl::error}};
+    if (level != ""){
+        ST table[4] = {{"DEBUG", &Harl::debug}, {"INFO", &Harl::info}, {"WARNING", &Harl::warning}, {"ERROR", &Harl::error}};
 
-    for (int i = 0; i < 4; i++)
-    {
-        if (level == table[i].name)
+        for (int i = 0; i < 4; i++)
         {
-            (this->*(table[i].ptr))();
-            return ;
+            if (level == table[i].name)
+            {
+                (this->*(table[i].ptr))();
+                return ;
+            }
         }
     }
     std::cout << "[ Probably complaining about insignificant problems ]" <<std::endl;
-
 }

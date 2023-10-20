@@ -6,7 +6,7 @@
 /*   By: shilal <shilal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/05 01:35:53 by shilal            #+#    #+#             */
-/*   Updated: 2023/10/14 02:50:27 by shilal           ###   ########.fr       */
+/*   Updated: 2023/10/15 04:03:20 by shilal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,7 @@ replace::replace(std::string f_name, std::string str1, std::string str2) : name(
 }
 
 replace::~replace(){
+
     this->file.close();
     this->r_file.close();
 }

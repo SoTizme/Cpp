@@ -6,7 +6,7 @@
 /*   By: shilal <shilal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/01 03:06:52 by shilal            #+#    #+#             */
-/*   Updated: 2023/10/05 01:03:03 by shilal           ###   ########.fr       */
+/*   Updated: 2023/10/15 03:57:24 by shilal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,7 @@ class HumanB {
 
     public :
 
-        HumanB(std::string s): str(s) {}
-        ~HumanB(void){}
+        HumanB(std::string s);
 
     void attack(void);
     void setWeapon(Weapon& wepn);

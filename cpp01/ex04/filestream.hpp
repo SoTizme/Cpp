@@ -6,7 +6,7 @@
 /*   By: shilal <shilal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/05 01:35:46 by shilal            #+#    #+#             */
-/*   Updated: 2023/10/06 16:53:00 by shilal           ###   ########.fr       */
+/*   Updated: 2023/10/15 04:03:00 by shilal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ class replace {
 
         std::ifstream file;
         std::ofstream r_file;
-        std :: string name;
+        std:: string name;
         
         public :
             replace(std::string f_name, std::string str1, std::string str2);

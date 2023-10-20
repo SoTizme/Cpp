@@ -6,7 +6,7 @@
 /*   By: shilal <shilal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/28 23:19:49 by shilal            #+#    #+#             */
-/*   Updated: 2023/10/01 01:16:52 by shilal           ###   ########.fr       */
+/*   Updated: 2023/10/15 09:06:08 by shilal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,11 @@ int main(void)
 {
     Zombie *a;
 
-    a = zombieHorde(10, "hilal");
-    for (int i = 0; i < 10; i++)
+    int j = 3;
+
+    a = zombieHorde(j, "hilal");
+
+    for (int i = 0; i < j; i++)
         a[i].announce();
 
     delete [] a;

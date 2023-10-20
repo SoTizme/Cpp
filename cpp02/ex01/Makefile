@@ -1,10 +1,10 @@
-NAME = Brainz
+NAME = Fixed_point
 
-SRC = main.cpp newZombie.cpp Zombie.cpp randomChump.cpp
+SRC = main.cpp Fixed.cpp
 
 RM = rm -f
 CC = c++
-CFLAG = -std=c++98 -Wall -Wextra -Werror
+CFLAG = -std=c++98 -Wall -Wextra -Werror 
 
 all : $(NAME)
 
