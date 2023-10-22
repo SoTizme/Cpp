@@ -6,7 +6,7 @@
 /*   By: shilal <shilal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 09:29:02 by shilal            #+#    #+#             */
-/*   Updated: 2023/10/22 15:51:48 by shilal           ###   ########.fr       */
+/*   Updated: 2023/10/22 19:31:06 by shilal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,11 +26,10 @@ class Fixed {
         Fixed();
         ~Fixed();
         Fixed(Fixed &copy_class);
+        Fixed& operator=(Fixed const& fclass);
 
         int getRawBits(void) const;
         void setRawBits(int n);
-
-        Fixed& operator=(Fixed const& fclass);
 };
 
 #endif

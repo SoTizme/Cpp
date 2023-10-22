@@ -6,7 +6,7 @@
 /*   By: shilal <shilal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/22 10:53:34 by shilal            #+#    #+#             */
-/*   Updated: 2023/10/22 16:04:01 by shilal           ###   ########.fr       */
+/*   Updated: 2023/10/22 19:39:43 by shilal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,15 +15,13 @@
 //  ---------> Orthodox Canonical :
 
 Fixed::Fixed(void){
-
-    this->FixedPoint = 0;
+    FixedPoint = 0;
 }
 
-Fixed::~Fixed(void){
-}
+Fixed::~Fixed(void){}
 
 Fixed::Fixed(const Fixed & copy_class){
-    this->FixedPoint = copy_class.FixedPoint;
+    FixedPoint = copy_class.FixedPoint;
 }
 
 Fixed::Fixed(const int n){
@@ -45,11 +43,11 @@ float Fixed::toFloat(void) const{
 }
 
 int Fixed::getRawBits(void) const{
-    return(this->FixedPoint);
+    return(FixedPoint);
 }
 
 void Fixed::setRawBits(int const raw){
-    this->FixedPoint = raw;
+    FixedPoint = raw;
 }
 
 // Operator Overloding :
@@ -62,27 +60,19 @@ std::ostream& operator<<(std::ostream& output, const Fixed& fclass){
 // Arithmetic Operators :
 
 Fixed Fixed::operator*(Fixed const& fclass) {
-
-    Fixed c(toFloat() * fclass.toFloat());
-    return (c);
+    return (toFloat() * fclass.toFloat());
 }
 
 Fixed Fixed::operator+(Fixed const& fclass) {
-
-    Fixed c(toFloat() + fclass.toFloat());
-    return (c);
+    return (toFloat() + fclass.toFloat());
 }
 
 Fixed Fixed::operator-(Fixed const& fclass) {
-
-    Fixed c(toFloat() - fclass.toFloat());
-    return (c);
+    return (toFloat() - fclass.toFloat());
 }
 
 Fixed Fixed::operator/(Fixed const& fclass) {
-
-    Fixed c(toFloat() / fclass.toFloat());
-    return (c);
+    return (toFloat() / fclass.toFloat());
 }
 
 // Comparison Operators :
@@ -124,16 +114,13 @@ Fixed& Fixed::operator--(void){
 }
 
 Fixed Fixed::operator--(int){
-
     Fixed tmp(this->toFloat());
     --FixedPoint;
     return tmp;
 }
 
 Fixed Fixed::operator++(int){
-
     Fixed tmp(this->toFloat());
-
    ++FixedPoint;
     return tmp;
 }

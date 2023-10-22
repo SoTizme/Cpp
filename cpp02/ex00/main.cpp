@@ -6,7 +6,7 @@
 /*   By: shilal <shilal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 09:24:14 by shilal            #+#    #+#             */
-/*   Updated: 2023/10/19 11:03:58 by shilal           ###   ########.fr       */
+/*   Updated: 2023/10/22 19:31:50 by shilal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ int main(void)
     Fixed a;
     Fixed b(a);
     Fixed c;
+
     c = b;
 
     std::cout << a.getRawBits() << std::endl;
