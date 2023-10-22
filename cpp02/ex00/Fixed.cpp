@@ -6,45 +6,44 @@
 /*   By: shilal <shilal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 09:34:41 by shilal            #+#    #+#             */
-/*   Updated: 2023/10/20 16:04:29 by shilal           ###   ########.fr       */
+/*   Updated: 2023/10/22 15:56:49 by shilal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
 
+//  ---------> Orthodox Canonical :
+ 
 Fixed::Fixed(void){
-
-    this->nb = 0;
     std::cout << "Default constructor called" << std::endl;
+    this->FixedPoint = 0;
+}
+
+Fixed::Fixed(Fixed& copy_class){
+    std::cout << "Copy constructor called" << std::endl;
+    this->FixedPoint = copy_class.getRawBits();
 }
 
 Fixed::~Fixed(void){
-
-    std::cout << "Destructor called"<<std::endl;
+    std::cout << "Destructor called" <<std::endl;
 }
 
-Fixed:: Fixed(Fixed &copy_class){
-
-    std::cout << "Copy constructor called" << std::endl;
-    this->nb = copy_class.getRawBits();
-}
-
-Fixed Fixed:: operator=(Fixed const& fclass) {
-
-    std::cout << "Copy assignment operator called" << std::endl;
-
-    Fixed c;
-    c.nb = fclass.getRawBits();
-    return (c);
-}
+//  ---------> Member Function : 
 
 int Fixed::getRawBits(void) const{
-
     std::cout << "getRawBits member function called" << std::endl;
-    return(this->nb);
+    return(this->FixedPoint);
 }
 
+void Fixed::setRawBits(int const raw){
+    this->FixedPoint = raw;
+}
 
-void Fixed::setRawBits(int n){
-    this->nb = n;
+//  ---------> Operator Overloading: 
+
+Fixed& Fixed::operator=(Fixed const& fclass){
+
+    std::cout << "Copy assignment operator called" << std::endl;
+    this->FixedPoint = fclass.getRawBits();
+    return (*this);
 }

@@ -6,44 +6,68 @@
 /*   By: shilal <shilal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 09:34:41 by shilal            #+#    #+#             */
-/*   Updated: 2023/10/20 17:11:58 by shilal           ###   ########.fr       */
+/*   Updated: 2023/10/22 15:44:27 by shilal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
 
+//  ---------> Orthodox Canonical :
+ 
 Fixed::Fixed(void){
-
-    this->FixedPointInt = 0;
     std::cout << "Default constructor called" << std::endl;
+    this->FixedPoint = 0;
 }
 
-Fixed::Fixed(const Fixed & copy_class){
-    this->FixedPointInt = copy_class.FixedPointInt;
+Fixed::Fixed(const Fixed& copy_class){
+    std::cout << "Copy constructor called" << std::endl;
+    *this = copy_class;
 }
 
 Fixed::~Fixed(void){
-
     std::cout << "Destructor called" <<std::endl;
 }
 
-Fixed:: Fixed(const int n){
-    FixedPointInt = n << nByt;
+Fixed::Fixed(const int n){
+    std::cout << "Int constructor called" <<std::endl;
+    FixedPoint = n << nByt;
 }
 
-Fixed:: Fixed(const float n){
-    FixedPointInt = roundf(n * (1 << nByt));
+Fixed::Fixed(const float n){
+    std::cout << "Float constructor called" <<std::endl;
+    FixedPoint = roundf(n * (1 << nByt));
 }
+
+//  ---------> Member Function : 
 
 int Fixed::toInt(void) const{
-    return (FixedPointInt >> nByt);
+    return (FixedPoint >> nByt);
 }
 
 float Fixed::toFloat(void) const{
-    return ((float)FixedPointInt / (1 << nByt));
+    return ((float)FixedPoint / (1 << nByt));
 }
 
-std::ostream& operator << (std::ostream& output, const Fixed& fclass){
+int Fixed::getRawBits(void) const{
+    std::cout << "GetRawBits member function called" << std::endl;
+    return(this->FixedPoint);
+}
+
+void Fixed::setRawBits(int const raw){
+    this->FixedPoint = raw;
+}
+
+//  ---------> Operator Overloading: 
+
+Fixed& Fixed::operator=(Fixed const& fclass){
+
+    std::cout << "Copy assignment operator called" << std::endl;
+    this->FixedPoint = fclass.FixedPoint;
+    return (*this);
+}
+
+std::ostream& operator<<(std::ostream& output, const Fixed& fclass){
+
     output << fclass.toFloat();
     return (output);
 }
