@@ -6,7 +6,7 @@
 /*   By: shilal <shilal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/22 10:53:34 by shilal            #+#    #+#             */
-/*   Updated: 2023/10/22 19:39:43 by shilal           ###   ########.fr       */
+/*   Updated: 2023/10/22 19:45:38 by shilal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ void Fixed::setRawBits(int const raw){
     FixedPoint = raw;
 }
 
-// Operator Overloding :
+//  ---------> Operator Overloding :
 
 std::ostream& operator<<(std::ostream& output, const Fixed& fclass){
     output << fclass.toFloat();
