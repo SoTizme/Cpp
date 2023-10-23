@@ -6,7 +6,7 @@
 /*   By: shilal <shilal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 09:29:02 by shilal            #+#    #+#             */
-/*   Updated: 2023/10/22 19:31:06 by shilal           ###   ########.fr       */
+/*   Updated: 2023/10/23 15:08:11 by shilal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,6 @@
 #define FIXED_HPP
 
 #include <iostream>
-#include <iomanip>
-
 
 class Fixed {
   

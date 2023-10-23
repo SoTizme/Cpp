@@ -6,7 +6,7 @@
 /*   By: shilal <shilal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/22 10:52:47 by shilal            #+#    #+#             */
-/*   Updated: 2023/10/22 16:00:18 by shilal           ###   ########.fr       */
+/*   Updated: 2023/10/23 15:13:25 by shilal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ class Fixed {
         Fixed(const int n);
         Fixed(const float n);
         Fixed(const Fixed &copy_class); 
+        Fixed& operator=(Fixed const& fclass);
         ~Fixed();
 
         void setRawBits(int const raw);

@@ -6,21 +6,19 @@
 /*   By: shilal <shilal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/22 10:53:34 by shilal            #+#    #+#             */
-/*   Updated: 2023/10/22 19:45:38 by shilal           ###   ########.fr       */
+/*   Updated: 2023/10/23 15:14:23 by shilal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
 
-//  ---------> Orthodox Canonical :
+//  ---------> Constructors :
 
 Fixed::Fixed(void){
     FixedPoint = 0;
 }
 
-Fixed::~Fixed(void){}
-
-Fixed::Fixed(const Fixed & copy_class){
+Fixed::Fixed(const Fixed& copy_class){
     FixedPoint = copy_class.FixedPoint;
 }
 
@@ -31,6 +29,15 @@ Fixed::Fixed(const int n){
 Fixed::Fixed(const float n){
     FixedPoint = roundf(n * (1 << nByt));
 }
+
+Fixed& Fixed::operator=(Fixed const& fclass){
+    this->FixedPoint = fclass.FixedPoint;
+    return (*this);
+}
+
+//  ---------> Destructor :
+
+Fixed::~Fixed(void){}
 
 //  ---------> Member Function : 
 

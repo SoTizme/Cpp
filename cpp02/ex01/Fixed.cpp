@@ -6,13 +6,13 @@
 /*   By: shilal <shilal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 09:34:41 by shilal            #+#    #+#             */
-/*   Updated: 2023/10/22 19:34:00 by shilal           ###   ########.fr       */
+/*   Updated: 2023/10/23 15:11:09 by shilal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
 
-//  ---------> Orthodox Canonical :
+//  ---------> Constructors :
  
 Fixed::Fixed(void){
     std::cout << "Default constructor called" << std::endl;
@@ -24,10 +24,6 @@ Fixed::Fixed(const Fixed& copy_class){
     *this = copy_class;
 }
 
-Fixed::~Fixed(void){
-    std::cout << "Destructor called" <<std::endl;
-}
-
 Fixed::Fixed(const int n){
     std::cout << "Int constructor called" <<std::endl;
     FixedPoint = n << nByt;
@@ -36,6 +32,18 @@ Fixed::Fixed(const int n){
 Fixed::Fixed(const float n){
     std::cout << "Float constructor called" <<std::endl;
     FixedPoint = roundf(n * (1 << nByt));
+}
+
+Fixed& Fixed::operator=(Fixed const& fclass){
+    std::cout << "Copy assignment operator called" << std::endl;
+    this->FixedPoint = fclass.FixedPoint;
+    return (*this);
+}
+
+//  ---------> Destructor :
+
+Fixed::~Fixed(void){
+    std::cout << "Destructor called" <<std::endl;
 }
 
 //  ---------> Member Function :
@@ -58,12 +66,6 @@ void Fixed::setRawBits(int const raw){
 }
 
 //  ---------> Operator Overloading: 
-
-Fixed& Fixed::operator=(Fixed const& fclass){
-    std::cout << "Copy assignment operator called" << std::endl;
-    this->FixedPoint = fclass.FixedPoint;
-    return (*this);
-}
 
 std::ostream& operator<<(std::ostream& output, const Fixed& fclass){
     output << fclass.toFloat();
