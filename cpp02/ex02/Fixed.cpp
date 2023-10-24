@@ -6,7 +6,7 @@
 /*   By: shilal <shilal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/22 10:53:34 by shilal            #+#    #+#             */
-/*   Updated: 2023/10/23 15:14:23 by shilal           ###   ########.fr       */
+/*   Updated: 2023/10/24 10:27:24 by shilal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,11 +67,11 @@ std::ostream& operator<<(std::ostream& output, const Fixed& fclass){
 // Arithmetic Operators :
 
 Fixed Fixed::operator*(Fixed const& fclass) {
-    return (toFloat() * fclass.toFloat());
+    return (FixedPoint * fclass.FixedPoint);
 }
 
 Fixed Fixed::operator+(Fixed const& fclass) {
-    return (toFloat() + fclass.toFloat());
+    return (toFloat() + fclass.toFloat() );
 }
 
 Fixed Fixed::operator-(Fixed const& fclass) {

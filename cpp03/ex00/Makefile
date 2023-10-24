@@ -1,6 +1,6 @@
-NAME = Fixed_02
+NAME = ClapTrap
 
-SRC = main.cpp Fixed.cpp
+SRC = main.cpp ClapTrap.cpp
 
 RM = rm -f
 CC = c++
