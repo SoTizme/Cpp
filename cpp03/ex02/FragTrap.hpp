@@ -1,26 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   FragTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: shilal <shilal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/24 14:14:01 by shilal            #+#    #+#             */
-/*   Updated: 2023/10/25 11:34:42 by shilal           ###   ########.fr       */
+/*   Created: 2023/10/25 13:14:12 by shilal            #+#    #+#             */
+/*   Updated: 2023/10/25 13:21:04 by shilal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef FRAGTRAP_HPP
+#define FRAGTRAP_HPP
+
 #include "ClapTrap.hpp"
 
-int main()
-{
-    ClapTrap c("hilal");
+class FragTrap : public ClapTrap {
 
-    c.takeDamage(9);
-    c.takeDamage(10);
+    public :
+        FragTrap();
+        FragTrap(std::string n);
+        FragTrap(FragTrap const& flag);
+        FragTrap& operator=(FragTrap const& flag);
+        ~FragTrap();
 
-    c.beRepaired(10);
-    c.attack("nana");
+    void highFivesGuys(void);
+};
 
-    return (0);
-}
+#endif

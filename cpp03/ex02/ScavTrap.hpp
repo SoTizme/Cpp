@@ -1,26 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: shilal <shilal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/24 14:14:01 by shilal            #+#    #+#             */
-/*   Updated: 2023/10/25 11:34:42 by shilal           ###   ########.fr       */
+/*   Created: 2023/10/25 11:36:30 by shilal            #+#    #+#             */
+/*   Updated: 2023/10/25 13:13:57 by shilal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef SCAVTRAP_HPP
+#define SCAVTRAP_HPP
+
 #include "ClapTrap.hpp"
 
-int main()
-{
-    ClapTrap c("hilal");
+class ScavTrap : public ClapTrap {
 
-    c.takeDamage(9);
-    c.takeDamage(10);
+    public :
+        ScavTrap();
+        ScavTrap(std::string n);
+        ScavTrap(ScavTrap const& scav);
+        ScavTrap& operator=(ScavTrap const& scav);
+        ~ScavTrap();
 
-    c.beRepaired(10);
-    c.attack("nana");
+        void guardGate();
+};
 
-    return (0);
-}
+#endif
