@@ -6,9 +6,10 @@
 /*   By: shilal <shilal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 11:36:30 by shilal            #+#    #+#             */
-/*   Updated: 2023/10/25 13:13:57 by shilal           ###   ########.fr       */
+/*   Updated: 2023/10/25 14:52:32 by shilal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 
 #ifndef SCAVTRAP_HPP
 #define SCAVTRAP_HPP
@@ -24,6 +25,7 @@ class ScavTrap : public ClapTrap {
         ScavTrap& operator=(ScavTrap const& scav);
         ~ScavTrap();
 
+        void attack(const std::string& target);
         void guardGate();
 };
 

@@ -6,7 +6,7 @@
 /*   By: shilal <shilal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/24 14:14:10 by shilal            #+#    #+#             */
-/*   Updated: 2023/10/25 13:49:07 by shilal           ###   ########.fr       */
+/*   Updated: 2023/10/26 12:14:24 by shilal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,9 @@ ClapTrap::ClapTrap(){
 	AttackDamage = 0;
 }
 
-ClapTrap::ClapTrap(std::string n) : Name(n){
+ClapTrap::ClapTrap(std::string n){
 	std::cout << "Paramiters Constrocture called"<< std::endl;
+	Name = n;
 	HitPoints = 10;
 	EnergyPoints = 10;
 	AttackDamage = 0;

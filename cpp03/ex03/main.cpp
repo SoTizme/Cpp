@@ -1,32 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: shilal <shilal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/25 11:36:30 by shilal            #+#    #+#             */
-/*   Updated: 2023/10/25 14:52:32 by shilal           ###   ########.fr       */
+/*   Created: 2023/10/24 14:14:01 by shilal            #+#    #+#             */
+/*   Updated: 2023/10/26 12:36:07 by shilal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "DiamondTrap.hpp"
 
-#ifndef SCAVTRAP_HPP
-#define SCAVTRAP_HPP
+int main()
+{
+    DiamondTrap c("Player");
+    c.whoAmI();
 
-#include "ClapTrap.hpp"
-
-class ScavTrap : public ClapTrap {
-
-    public :
-        ScavTrap();
-        ScavTrap(std::string n);
-        ScavTrap(ScavTrap const& scav);
-        ScavTrap& operator=(ScavTrap const& scav);
-        ~ScavTrap();
-
-        void attack(const std::string& target);
-        void guardGate();
-};
-
-#endif
+    c.takeDamage(9);
+    for (int i = 0; i <= 9; i++)
+        c.beRepaired(5);
+    c.attack("Monster");
+    return (0);
+}

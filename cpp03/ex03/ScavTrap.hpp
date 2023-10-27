@@ -6,17 +6,16 @@
 /*   By: shilal <shilal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 11:36:30 by shilal            #+#    #+#             */
-/*   Updated: 2023/10/25 14:52:32 by shilal           ###   ########.fr       */
+/*   Updated: 2023/10/25 22:26:18 by shilal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #ifndef SCAVTRAP_HPP
 #define SCAVTRAP_HPP
 
 #include "ClapTrap.hpp"
 
-class ScavTrap : public ClapTrap {
+class ScavTrap : virtual public ClapTrap {
 
     public :
         ScavTrap();

@@ -6,7 +6,7 @@
 /*   By: shilal <shilal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 11:36:26 by shilal            #+#    #+#             */
-/*   Updated: 2023/10/25 13:40:08 by shilal           ###   ########.fr       */
+/*   Updated: 2023/10/26 12:22:35 by shilal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 ScavTrap::ScavTrap(){
     std::cout << "ScavTrap : Default Constructor called" << std::endl;
-    
     Name = "Default";
     HitPoints = 100;
     EnergyPoints = 50;
@@ -48,6 +47,16 @@ ScavTrap& ScavTrap::operator=(ScavTrap const& scav){
 
 ScavTrap::~ScavTrap(){
     std::cout << "ScavTrap : Deconstructor called" << std::endl;
+}
+
+void ScavTrap::attack(const std::string& target){
+	if (HitPoints > 0 && EnergyPoints > 0)
+	{
+		std::cout << Name <<" attacks "<< target << ", causing "<< AttackDamage << " points of damage!"<< std::endl;
+		EnergyPoints--;
+	}
+	else
+		std::cout << Name <<" can't attack "<< target <<std::endl;
 }
 
 void ScavTrap::guardGate(void){

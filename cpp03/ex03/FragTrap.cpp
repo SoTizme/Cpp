@@ -6,14 +6,14 @@
 /*   By: shilal <shilal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 13:14:08 by shilal            #+#    #+#             */
-/*   Updated: 2023/10/26 12:23:13 by shilal           ###   ########.fr       */
+/*   Updated: 2023/10/26 12:27:02 by shilal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "FragTrap.hpp"
 
 FragTrap::FragTrap(){
-    std::cout << "FragTrap : Default Constructer called" << std::endl;
+    std::cout << "FragTrap : Default Constructer called" << std::endl; 
     Name = "Default";
     HitPoints = 100;
 	EnergyPoints = 100;
@@ -21,7 +21,7 @@ FragTrap::FragTrap(){
 }
 
 FragTrap::FragTrap(std::string n){
-    std::cout << "FragTrap : Paramiter Constructer called" << std::endl;
+    std::cout << "FragTrap : Paramiter Constructer called" << std::endl;  
     Name = n;
     HitPoints = 100;
 	EnergyPoints = 100;

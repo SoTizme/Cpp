@@ -6,7 +6,7 @@
 /*   By: shilal <shilal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/24 14:14:01 by shilal            #+#    #+#             */
-/*   Updated: 2023/10/25 13:11:59 by shilal           ###   ########.fr       */
+/*   Updated: 2023/10/26 12:31:54 by shilal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,10 @@ int main()
 {
     ScavTrap c;
     
-    c.guardGate();
-    c.takeDamage(99);
-    c.takeDamage(10);
-    
-    c.beRepaired(10);
-    c.attack("nana");
+    c.takeDamage(9);
+    for (int i = 0; i < 50; i++)
+        c.beRepaired(5);
+    c.attack("Monster");
+
     return (0);
 }

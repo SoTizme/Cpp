@@ -5,20 +5,32 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: shilal <shilal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/24 14:14:01 by shilal            #+#    #+#             */
-/*   Updated: 2023/10/26 12:21:30 by shilal           ###   ########.fr       */
+/*   Created: 2023/10/27 15:20:27 by shilal            #+#    #+#             */
+/*   Updated: 2023/10/27 19:03:08 by shilal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ClapTrap.hpp"
+#include "Animal.hpp"
+#include "Dog.hpp"
+#include "Cat.hpp"
 
 int main()
 {
-    ClapTrap c("hilal");
+    const Animal* meta = new Animal();
+    const Animal* j = new Dog();
+    const Animal* i = new Cat();
 
-    c.takeDamage(9);
-    for (int i = 0; i <= 9; i++)
-        c.beRepaired(5);
-    c.attack("Monster");
-    return (0);
+    std::cout << j->getType() << " " << std::endl;
+    std::cout << i->getType() << " " << std::endl;
+    std::cout << meta->getType() << " " << std::endl;
+
+    i->makeSound();
+    j->makeSound();
+    meta->makeSound();
+
+    delete i;
+    delete j;
+    delete meta;
+
+    return 0;
 }
