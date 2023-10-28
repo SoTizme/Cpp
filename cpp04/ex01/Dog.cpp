@@ -6,7 +6,7 @@
 /*   By: shilal <shilal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 15:21:01 by shilal            #+#    #+#             */
-/*   Updated: 2023/10/28 17:06:46 by shilal           ###   ########.fr       */
+/*   Updated: 2023/10/28 18:27:34 by shilal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,13 @@
 
 Dog::Dog(){
     std::cout << "Dog : Default Constructor called" << std::endl;
+    this->d = new Brain;
     type = "Dog";
 }
 
 Dog::Dog(std::string n){
     std::cout << "Dog : Parameterized Constructor called" << std::endl;
+    this->d = new Brain;
     type = n;
 }
 
@@ -35,6 +37,7 @@ Dog& Dog::operator=(Dog const& a){
 
 Dog::~Dog(){
     std::cout << "Dog : Destructor called" << std::endl;
+    delete d;
 }
 
 void Dog::makeSound(void) const{
