@@ -6,7 +6,7 @@
 /*   By: shilal <shilal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 15:21:01 by shilal            #+#    #+#             */
-/*   Updated: 2023/10/28 17:06:46 by shilal           ###   ########.fr       */
+/*   Updated: 2023/10/30 22:04:18 by shilal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ Dog::Dog(std::string n){
     type = n;
 }
 
-Dog::Dog(Dog const& clap){
+Dog::Dog(Dog const& clap): Animal(){
     std::cout << "Dog : Copy Constructor called" << std::endl;
     *this = clap;
 }

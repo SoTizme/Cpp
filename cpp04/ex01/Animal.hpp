@@ -6,7 +6,7 @@
 /*   By: shilal <shilal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 15:22:57 by shilal            #+#    #+#             */
-/*   Updated: 2023/10/28 18:06:33 by shilal           ###   ########.fr       */
+/*   Updated: 2023/10/30 22:37:17 by shilal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #define ANIMAL_HPP
 
 #include <iostream>
+#include <cstdlib>
 
 class Animal {
 

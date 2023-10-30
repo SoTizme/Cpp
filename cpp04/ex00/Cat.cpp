@@ -6,7 +6,7 @@
 /*   By: shilal <shilal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 15:22:59 by shilal            #+#    #+#             */
-/*   Updated: 2023/10/28 17:06:46 by shilal           ###   ########.fr       */
+/*   Updated: 2023/10/30 22:04:27 by shilal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ Cat::Cat(std::string n){
     type = n;
 }
 
-Cat::Cat(Cat const& clap){
+Cat::Cat(Cat const& clap): Animal(){
     std::cout << "Cat : Copy Constructor called" << std::endl;
     *this = clap;
 }

@@ -6,7 +6,7 @@
 /*   By: shilal <shilal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 15:20:27 by shilal            #+#    #+#             */
-/*   Updated: 2023/10/28 21:00:01 by shilal           ###   ########.fr       */
+/*   Updated: 2023/10/30 23:09:01 by shilal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,14 @@
 
 int main()
 {
-    const Animal* j = new Dog();
-    const Animal* i = new Cat();
+    // const Animal* j = new Dog();
+    // const Animal* i = new Cat();
 
-    delete j;
-    delete i;
+    Cat a;
+    Cat f = a;
+    a = f;
+    // delete j;
+    // delete i;
 
     return 0;
 }

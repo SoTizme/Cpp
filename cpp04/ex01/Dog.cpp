@@ -6,7 +6,7 @@
 /*   By: shilal <shilal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 15:21:01 by shilal            #+#    #+#             */
-/*   Updated: 2023/10/28 18:27:34 by shilal           ###   ########.fr       */
+/*   Updated: 2023/10/30 22:03:26 by shilal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,20 +24,23 @@ Dog::Dog(std::string n){
     type = n;
 }
 
-Dog::Dog(Dog const& clap){
+Dog::Dog(Dog const& clap) : Animal(){
     std::cout << "Dog : Copy Constructor called" << std::endl;
     *this = clap;
 }
 
 Dog& Dog::operator=(Dog const& a){
     std::cout << "Dog : Copy assignment operator called" << std::endl;
+    this->d = new Brain;
+    for (int i = 0; i < 100; i++)
+        this->d->ideas[i] = a.d->ideas[i];
     this->type = a.type;
     return (*this);
 }
 
 Dog::~Dog(){
-    std::cout << "Dog : Destructor called" << std::endl;
     delete d;
+    std::cout << "Dog : Destructor called" << std::endl;
 }
 
 void Dog::makeSound(void) const{
