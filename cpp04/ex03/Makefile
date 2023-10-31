@@ -1,6 +1,6 @@
-NAME = Deep_copy
+NAME = Interface
 
-SRC = main.cpp Animal.cpp Dog.cpp Cat.cpp WrongCat.cpp WrongAnimal.cpp Brain.cpp
+SRC = main.cpp AMateria.cpp
 
 RM = rm -f
 CC = c++

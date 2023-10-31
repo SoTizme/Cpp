@@ -1,6 +1,6 @@
 NAME = Deep_copy
 
-SRC = main.cpp Animal.cpp Dog.cpp Cat.cpp WrongCat.cpp WrongAnimal.cpp Brain.cpp
+SRC = main.cpp Animal.cpp Dog.cpp Cat.cpp WrongCat.cpp WrongAnimal.cpp Brain.cpp AAnimal.cpp
 
 RM = rm -f
 CC = c++

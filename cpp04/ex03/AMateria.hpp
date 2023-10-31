@@ -1,29 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Brain.hpp                                          :+:      :+:    :+:   */
+/*   AMateria.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: shilal <shilal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/28 18:08:33 by shilal            #+#    #+#             */
-/*   Updated: 2023/10/31 16:15:30 by shilal           ###   ########.fr       */
+/*   Created: 2023/10/31 19:02:53 by shilal            #+#    #+#             */
+/*   Updated: 2023/10/31 19:22:14 by shilal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef BRAIN_HPP
-#define BRAIN_HPP
+#ifndef AMATERIA_HPP
+#define AMATERIA_HPP
 
 #include <iostream>
 
-class Brain{
+class AMateria
+{
+    protected:
+    std::string type;
 
-     public :
-        Brain();
-        Brain(Brain const& clap);
-        Brain& operator=(Brain const& clap);
-        ~Brain();
-    
-    std::string ideas[100];
+    public:
+        AMateria();
+        AMateria(std::string const& type);
+        AMateria(AMateria const& a);
+        AMateria& operator=(AMateria const& a);
+        ~AMateria();
+        
+
+    std::string const& getType() const;
+    virtual AMateria* clone() const = 0;
+    // virtual void use(ICharacter& target);
 };
 
 #endif

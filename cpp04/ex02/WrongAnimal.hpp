@@ -1,29 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Brain.hpp                                          :+:      :+:    :+:   */
+/*   WrongAnimal.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: shilal <shilal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/28 18:08:33 by shilal            #+#    #+#             */
-/*   Updated: 2023/10/31 16:15:30 by shilal           ###   ########.fr       */
+/*   Created: 2023/10/31 15:51:05 by shilal            #+#    #+#             */
+/*   Updated: 2023/10/31 15:53:50 by shilal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef BRAIN_HPP
-#define BRAIN_HPP
+#ifndef WRONGANIMAL_HPP
+#define WRONGANIMAL_HPP
 
 #include <iostream>
 
-class Brain{
+class WrongAnimal {
 
-     public :
-        Brain();
-        Brain(Brain const& clap);
-        Brain& operator=(Brain const& clap);
-        ~Brain();
-    
-    std::string ideas[100];
+    protected :
+        std::string type;
+
+    public :
+        WrongAnimal();
+        WrongAnimal(std::string n);
+        WrongAnimal(WrongAnimal const& clap);
+        WrongAnimal& operator=(WrongAnimal const& clap);
+        ~WrongAnimal();
+
+    std::string getType() const;
+    void makeSound(void) const;
 };
 
 #endif

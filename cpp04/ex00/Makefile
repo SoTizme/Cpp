@@ -1,6 +1,6 @@
 NAME = Polymorphism
 
-SRC = main.cpp Animal.cpp Dog.cpp Cat.cpp
+SRC = main.cpp Animal.cpp Dog.cpp Cat.cpp WrongCat.cpp WrongAnimal.cpp
 
 RM = rm -f
 CC = c++

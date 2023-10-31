@@ -1,34 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.hpp                                            :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: shilal <shilal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/27 15:20:59 by shilal            #+#    #+#             */
-/*   Updated: 2023/10/31 14:04:18 by shilal           ###   ########.fr       */
+/*   Created: 2023/10/27 15:20:27 by shilal            #+#    #+#             */
+/*   Updated: 2023/10/31 17:53:45 by shilal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DOG_HPP
-#define DOG_HPP
-
 #include "Animal.hpp"
-#include "Brain.hpp"
+#include "AAnimal.hpp"
+#include "Dog.hpp"
+#include "Cat.hpp"
+#include "WrongCat.hpp"
+#include "WrongAnimal.hpp"
 
-class Dog : public Animal {
 
-    Brain *d;
+int main() 
+{
+    const AAnimal* j = new Dog();
+    const Animal* i = new Cat();
+    std::cout << "==============================" << std::endl;
 
-    public :
+    j->makeSound();
+    i->makeSound();
 
-        Dog();
-        Dog(std::string n);
-        Dog(Dog const& clap);
-        Dog& operator=(Dog const& clap);
-        ~Dog();
+    std::cout << "==============================" << std::endl;
+    delete j;
+    delete i;
 
-    void makeSound(void) const;
-};
-
-#endif
+    return 0;
+}
