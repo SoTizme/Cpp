@@ -6,7 +6,7 @@
 /*   By: shilal <shilal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 19:23:00 by shilal            #+#    #+#             */
-/*   Updated: 2023/10/31 19:32:46 by shilal           ###   ########.fr       */
+/*   Updated: 2023/11/01 16:26:20 by shilal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,4 +37,8 @@ AMateria* Ice::clone() const{
     Ice *s = new Ice;
     s->type = this->type;
     return s;
+}
+
+void Ice::use(ICharacter& target){
+    std:: cout << " Ice: \"* shoots an ice bolt at"<< target.getName() << "*\"" <<std::endl;
 }

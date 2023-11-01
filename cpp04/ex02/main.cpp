@@ -6,7 +6,7 @@
 /*   By: shilal <shilal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 15:20:27 by shilal            #+#    #+#             */
-/*   Updated: 2023/10/31 17:53:45 by shilal           ###   ########.fr       */
+/*   Updated: 2023/11/01 16:00:33 by shilal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 #include "Cat.hpp"
 #include "WrongCat.hpp"
 #include "WrongAnimal.hpp"
-
+#include <iostream>
 
 int main() 
 {
@@ -30,6 +30,6 @@ int main()
     std::cout << "==============================" << std::endl;
     delete j;
     delete i;
-
+    
     return 0;
 }

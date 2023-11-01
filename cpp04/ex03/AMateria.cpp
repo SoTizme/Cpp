@@ -6,7 +6,7 @@
 /*   By: shilal <shilal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 19:08:38 by shilal            #+#    #+#             */
-/*   Updated: 2023/10/31 19:20:57 by shilal           ###   ########.fr       */
+/*   Updated: 2023/11/01 18:19:44 by shilal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,4 +39,8 @@ AMateria::~AMateria(){
 
 std::string const& AMateria::getType() const{
     return (type);
+}
+
+void AMateria::use(ICharacter& target){
+    std:: cout << " AMateria: \"* shoots an cure bolt at"<<target.getName() << "*\"" <<std::endl;
 }
