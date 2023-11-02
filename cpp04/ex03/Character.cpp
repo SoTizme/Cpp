@@ -6,7 +6,7 @@
 /*   By: shilal <shilal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 15:20:19 by shilal            #+#    #+#             */
-/*   Updated: 2023/11/02 22:22:34 by shilal           ###   ########.fr       */
+/*   Updated: 2023/11/02 22:51:07 by shilal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,12 @@ Character::Character(Character const& clap){
     ptr = clap.ptr;
     error = clap.error;
     for (int i = 0; i < 4; i++)
-        inventory[i] = clap.inventory[i];
+    {
+        if (clap.inventory[i])
+            this->inventory[i] = clap.inventory[i]->clone();
+        else
+            this->inventory[i] = 0;
+    }
 }
 
 Character& Character::operator=(Character const& a){
@@ -46,7 +51,12 @@ Character& Character::operator=(Character const& a){
             delete inventory[i];
     }
     for (int i = 0; i < 4; i++)
-        inventory[i] = a.inventory[i];
+    {
+        if (a.inventory[i])
+            this->inventory[i] = a.inventory[i]->clone();
+        else
+            this->inventory[i] = 0;
+    }
     return (*this);
 }
 

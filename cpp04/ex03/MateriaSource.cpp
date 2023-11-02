@@ -6,7 +6,7 @@
 /*   By: shilal <shilal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 14:02:27 by shilal            #+#    #+#             */
-/*   Updated: 2023/11/02 22:21:30 by shilal           ###   ########.fr       */
+/*   Updated: 2023/11/02 22:55:37 by shilal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,12 @@ MateriaSource::MateriaSource(){
 
 MateriaSource::MateriaSource(MateriaSource const& clap){
    for (int i = 0; i < 4; i++)
-        tmp[i] = clap.tmp[i];
+   {
+        if (clap.tmp[i])
+            tmp[i] = clap.tmp[i]->clone();
+        else
+            tmp[i] = 0;
+   }
 }
 
 MateriaSource& MateriaSource::operator=(MateriaSource const& a){
@@ -29,7 +34,12 @@ MateriaSource& MateriaSource::operator=(MateriaSource const& a){
             delete tmp[i];
     }
     for (int i = 0; i < 4; i++)
-        tmp[i] = a.tmp[i];
+    {
+        if (a.tmp[i])
+            tmp[i] = a.tmp[i]->clone();
+        else
+            tmp[i] = 0;
+    }
     return (*this);
 }
 
