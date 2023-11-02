@@ -6,7 +6,7 @@
 /*   By: shilal <shilal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 14:02:31 by shilal            #+#    #+#             */
-/*   Updated: 2023/11/02 18:26:14 by shilal           ###   ########.fr       */
+/*   Updated: 2023/11/02 18:58:49 by shilal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,7 @@
 #define MATERIASOURCE_HPP
 
 #include <iostream>
-#include "AMateria.hpp"
 #include "IMateriaSource.hpp"
-
-// class IMateriaSource;
 
 class MateriaSource : public IMateriaSource
 {

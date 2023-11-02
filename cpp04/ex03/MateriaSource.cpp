@@ -6,25 +6,28 @@
 /*   By: shilal <shilal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 14:02:27 by shilal            #+#    #+#             */
-/*   Updated: 2023/11/02 18:31:45 by shilal           ###   ########.fr       */
+/*   Updated: 2023/11/02 22:21:30 by shilal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "MateriaSource.hpp"
 
 MateriaSource::MateriaSource(){
-    // std::cout << "MateriaSource : Constructor called" << std::endl;
-     for (int i = 0; i < 4; i++)
+    for (int i = 0; i < 4; i++)
         tmp[i] = 0;
 }
 
 MateriaSource::MateriaSource(MateriaSource const& clap){
-    // std::cout << "MateriaSource : Copy Constructor called" << std::endl;
-    *this = clap;
+   for (int i = 0; i < 4; i++)
+        tmp[i] = clap.tmp[i];
 }
 
 MateriaSource& MateriaSource::operator=(MateriaSource const& a){
-    // std::cout << "MateriaSource : Copy assignment operator called" << std::endl;
+
+    for (int i = 0; i < 4; i++){
+        if (tmp[i])
+            delete tmp[i];
+    }
     for (int i = 0; i < 4; i++)
         tmp[i] = a.tmp[i];
     return (*this);
@@ -35,7 +38,6 @@ MateriaSource::~MateriaSource(){
     {
         if (tmp[i])
             delete tmp[i];
-
     }
 }
 
@@ -45,9 +47,10 @@ void MateriaSource::learnMateria(AMateria* m){
         if (!tmp[i])
         {
             tmp[i] = m;
-            break ;
+            return ;
         }
-     }
+    }
+    delete m;
 }
 
 AMateria* MateriaSource::createMateria(std::string const& type){
