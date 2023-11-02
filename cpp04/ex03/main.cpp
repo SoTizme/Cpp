@@ -6,7 +6,7 @@
 /*   By: shilal <shilal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 15:20:27 by shilal            #+#    #+#             */
-/*   Updated: 2023/11/02 22:51:52 by shilal           ###   ########.fr       */
+/*   Updated: 2023/11/02 23:25:03 by shilal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,21 +16,92 @@
 #include "Character.hpp"
 #include "MateriaSource.hpp"
 
-int main1() 
+// int main1() 
+// {
+//     IMateriaSource* src = new MateriaSource();
+//     src->learnMateria(new Ice());
+//     src->learnMateria(new Cure());
+//     ICharacter* me = new Character("me");
+//     AMateria* tmp;
+//     tmp = src->createMateria("ice");
+//     me->equip(tmp);
+//     tmp = src->createMateria("cure");
+//     me->equip(tmp);
+//     ICharacter* bob = new Character("bob");
+//     me->use(0, *bob);
+//     me->use(1, *bob);
+//     delete bob;
+//     delete me;
+//     delete src;
+//     return 0;
+// }
+
+// int main1() 
+// {
+//     IMateriaSource* src = new MateriaSource();
+//     src->learnMateria(new Ice());
+//     src->learnMateria(new Cure());
+//     ICharacter* me = new Character("me");
+//     AMateria* tmp;
+//     tmp = src->createMateria("ice");
+//     me->equip(tmp);
+//     me->equip(tmp);
+//     tmp = src->createMateria("cure");
+//     me->equip(tmp);
+//     tmp = src->createMateria("cure");
+//     me->equip(tmp);
+//     tmp = src->createMateria("cure");
+//     me->equip(tmp);
+//     tmp = src->createMateria("cure");
+//     me->equip(tmp);
+//     tmp = src->createMateria("cure");
+//     me->equip(tmp);
+//     tmp = src->createMateria("cure");
+//     me->equip(tmp);
+//     tmp = src->createMateria("cure");
+//     me->equip(tmp);
+//     me->equip(tmp);
+//     me->equip(tmp);
+//     ICharacter* bob = new Character("bob");
+//     me->use(0, *bob);
+//     me->use(1, *bob);
+//     delete bob;
+//     delete me;
+//     delete src;
+//     return 0;
+// }
+
+int main1()
 {
     IMateriaSource* src = new MateriaSource();
-    src->learnMateria(new Ice());
     src->learnMateria(new Cure());
+    src->learnMateria(new Ice());
+    src->learnMateria(new Ice());
+    src->learnMateria(new Ice());
+    src->learnMateria(new Ice());
     ICharacter* me = new Character("me");
     AMateria* tmp;
     tmp = src->createMateria("ice");
     me->equip(tmp);
     tmp = src->createMateria("cure");
     me->equip(tmp);
-    ICharacter* bob = new Character("bob");
-    me->use(0, *bob);
-    me->use(1, *bob);
-    delete bob;
+    tmp = src->createMateria("cure");
+    me->equip(tmp);
+    tmp = src->createMateria("cure");
+    me->equip(tmp);
+    tmp = src->createMateria("cure");
+    me->equip(tmp);
+    tmp = src->createMateria("cure");
+    me->equip(tmp);
+    tmp = src->createMateria("cure");
+    me->equip(tmp);
+    me->equip(tmp);
+    me->equip(tmp);
+    
+    // ICharacter* bob = new Character("bob");
+    // me->use(0, *bob);
+    // me->use(1, *bob);
+    // delete bob;
     delete me;
     delete src;
     return 0;
