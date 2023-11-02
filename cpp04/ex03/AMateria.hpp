@@ -6,7 +6,7 @@
 /*   By: shilal <shilal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 19:02:53 by shilal            #+#    #+#             */
-/*   Updated: 2023/11/01 18:18:37 by shilal           ###   ########.fr       */
+/*   Updated: 2023/11/02 18:31:05 by shilal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ class AMateria
         AMateria(std::string const& type);
         AMateria(AMateria const& a);
         AMateria& operator=(AMateria const& a);
-        ~AMateria();
+        virtual ~AMateria();
         
 
     std::string const& getType() const;
