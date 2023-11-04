@@ -6,7 +6,7 @@
 /*   By: shilal <shilal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 15:20:22 by shilal            #+#    #+#             */
-/*   Updated: 2023/11/02 23:12:00 by shilal           ###   ########.fr       */
+/*   Updated: 2023/11/03 13:41:21 by shilal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@
 class Character : public ICharacter
 {
     private:
-        int full;
         std::string name;
         AMateria *inventory[4];
         AMateria *ptr;

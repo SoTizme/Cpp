@@ -6,7 +6,7 @@
 /*   By: shilal <shilal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 15:20:19 by shilal            #+#    #+#             */
-/*   Updated: 2023/11/02 23:20:16 by shilal           ###   ########.fr       */
+/*   Updated: 2023/11/03 13:40:58 by shilal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 Character::Character(){
     name = "Default";
     ptr = 0;
-    full = 0;
     error = 0;
     for (int i = 0; i < 4; i++)
         inventory[i] = 0;
@@ -24,7 +23,6 @@ Character::Character(){
 Character::Character(std::string const& n){
     name = n;
     ptr = 0;
-    full = 0;
     error = 0;
     for (int i = 0; i < 4; i++)
         inventory[i] = 0;
@@ -33,7 +31,6 @@ Character::Character(std::string const& n){
 Character::Character(Character const& clap){
     name = clap.name;
     ptr = clap.ptr;
-    full = clap.full;
     error = clap.error;
     for (int i = 0; i < 4; i++)
     {
@@ -48,7 +45,6 @@ Character& Character::operator=(Character const& a){
 
     name = a.name;
     ptr = a.ptr;
-    full = a.full;
     error = a.error;
     for (int i = 0; i < 4; i++){
         if (inventory[i])
@@ -87,18 +83,14 @@ void Character::equip(AMateria* m){
             return ;
         if (!inventory[i])
         {
-            full++;
             inventory[i] = m;
-            return;
+            return ;
         }
     }
-    if (full >= 4){
-        if (error != m)
-            delete error;
-        error = m;
-    }
-    else
-        delete m;
+    if (error != m)
+        delete error;
+    error = m;
+
 }
 
 void Character::unequip(int idx){
