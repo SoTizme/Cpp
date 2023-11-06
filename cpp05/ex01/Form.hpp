@@ -1,28 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Form.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: shilal <shilal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/04 17:10:37 by shilal            #+#    #+#             */
-/*   Updated: 2023/11/06 19:40:37 by shilal           ###   ########.fr       */
+/*   Created: 2023/11/06 18:16:14 by shilal            #+#    #+#             */
+/*   Updated: 2023/11/06 22:02:48 by shilal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef FORM_HPP
+#define FORM_HPP
+
+#include <iostream>
 #include "Bureaucrat.hpp"
 
-int main()
-{
-    try {
-        Bureaucrat a("hilal", 1);
-        std::cout << a << std::endl;
-        std::cout << "Increment The bureaucrat Grade of >> "<< a.getName() << std::endl;
-        a.decrement();
-        std::cout << a << std::endl;
-    }
-    catch (std::exception & e){
-        std::cout << e.what() << std::endl;
-    }
-    return 0;
-}
+class Form {
+
+    bool statu;
+    const std::string name;
+    const int gradeS;
+    const int gradeE;
+
+    public:
+        Form();
+        Form(std::string n, int gs, int ge, bool st);
+        ~Form();
+
+    void beSigned(Bureaucrat b);
+};
+
+#endif

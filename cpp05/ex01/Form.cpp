@@ -1,28 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Form.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: shilal <shilal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/04 17:10:37 by shilal            #+#    #+#             */
-/*   Updated: 2023/11/06 19:40:37 by shilal           ###   ########.fr       */
+/*   Created: 2023/11/06 18:16:11 by shilal            #+#    #+#             */
+/*   Updated: 2023/11/06 22:02:20 by shilal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Bureaucrat.hpp"
+#include "Form.hpp"
 
-int main()
-{
-    try {
-        Bureaucrat a("hilal", 1);
-        std::cout << a << std::endl;
-        std::cout << "Increment The bureaucrat Grade of >> "<< a.getName() << std::endl;
-        a.decrement();
-        std::cout << a << std::endl;
-    }
-    catch (std::exception & e){
-        std::cout << e.what() << std::endl;
-    }
-    return 0;
+Form::Form(): name("leader"), gradeS(1), gradeE(1){}
+
+Form::Form(std::string n, int gs, int ge, bool st): name(n), gradeS(gs), gradeE(ge){
+    statu = st;
+}
+
+Form::~Form(){}
+
+
+void Form::beSigned(Bureaucrat b){
+    if (b.getGrade() >= gradeS)
+        std::cout<< "hiiiii form 10" << std::endl;
 }
