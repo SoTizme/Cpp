@@ -6,7 +6,7 @@
 /*   By: shilal <shilal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/04 17:10:39 by shilal            #+#    #+#             */
-/*   Updated: 2023/11/06 17:54:39 by shilal           ###   ########.fr       */
+/*   Updated: 2023/11/07 16:06:14 by shilal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,15 @@
 #define BUREAUCRAT_HPP
 
 #include <iostream>
+#include "Form.hpp"
 
-class Bureaucrat{
+class Form;
 
-    std::string const name;
-    int grade;
+class Bureaucrat {
+
+    private:
+        std::string const name;
+        int grade;
 
     public :
 //  ----------------- Canonical Forms ----------------
@@ -41,6 +45,7 @@ class Bureaucrat{
     int getGrade()const;
     void increment();
     void decrement();
+    void signForm(Form &f);
 };
 
 

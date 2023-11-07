@@ -6,7 +6,7 @@
 /*   By: shilal <shilal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 18:16:14 by shilal            #+#    #+#             */
-/*   Updated: 2023/11/06 22:02:48 by shilal           ###   ########.fr       */
+/*   Updated: 2023/11/07 16:06:21 by shilal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,19 +16,40 @@
 #include <iostream>
 #include "Bureaucrat.hpp"
 
+class Bureaucrat;
+
 class Form {
 
-    bool statu;
-    const std::string name;
-    const int gradeS;
-    const int gradeE;
+    private:
+        bool statu;
+        const std::string name;
+        const int gradeS;
+        const int gradeE;
 
     public:
+//  ----------- Canonical Forms -----------
         Form();
-        Form(std::string n, int gs, int ge, bool st);
+        Form(std::string n, int gs, int ge);
+        Form(Form const& clap);
+        Form& operator=(Form const& clap);
         ~Form();
 
+//  ------------- custom exception class --------------
+    class GradeTooHighException: public std::exception{
+        const char* what() const throw();
+    };
+    class GradeTooLowException: public std::exception{
+        const char* what() const throw();
+    };
+
+//  ---- Members Functions ----
     void beSigned(Bureaucrat b);
+    std::string getName() const;
+    int getGradeS() const;
+    int getGradeE() const;
+    bool getStat();
 };
+
+std::ostream& operator<<(std::ostream& output, const Form& obj);
 
 #endif

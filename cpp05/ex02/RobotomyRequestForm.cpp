@@ -1,27 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   RobotomyRequestForm.cpp                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: shilal <shilal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/04 17:10:37 by shilal            #+#    #+#             */
-/*   Updated: 2023/11/07 15:17:12 by shilal           ###   ########.fr       */
+/*   Created: 2023/11/07 15:42:10 by shilal            #+#    #+#             */
+/*   Updated: 2023/11/07 16:03:47 by shilal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Bureaucrat.hpp"
-#include "Form.hpp"
+#include "RobotomyRequestForm.hpp"
 
-int main()
-{
-    try{
-        Bureaucrat a("hilal", 15);
-        Form c("souad", 19, 2);
-        a.signForm(c);
-    }
-    catch (std::exception & e){
-        std::cout << e.what() << std::endl;
-    }
-    return 0;
+RobotomyRequestForm::RobotomyRequestForm(){
+    
 }
+RobotomyRequestForm::RobotomyRequestForm(RobotomyRequestForm const& clap){
+    
+}
+
+RobotomyRequestForm& RobotomyRequestForm::operator=(RobotomyRequestForm const& clap){
+    
+}
+
+RobotomyRequestForm::~RobotomyRequestForm(){}

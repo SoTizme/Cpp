@@ -1,33 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Bureaucrat.hpp                                     :+:      :+:    :+:   */
+/*   AForm.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: shilal <shilal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/04 17:10:39 by shilal            #+#    #+#             */
-/*   Updated: 2023/11/07 16:06:34 by shilal           ###   ########.fr       */
+/*   Created: 2023/11/06 18:16:14 by shilal            #+#    #+#             */
+/*   Updated: 2023/11/07 15:12:52 by shilal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef BUREAUCRAT_HPP
-#define BUREAUCRAT_HPP
+#ifndef AFORM_HPP
+#define AFORM_HPP
 
 #include <iostream>
+#include "Bureaucrat.hpp"
 
-class Bureaucrat{
+class Bureaucrat;
+
+class AForm {
 
     private:
-        std::string const name;
-        int grade;
+        bool statu;
+        const std::string name;
+        const int gradeS;
+        const int gradeE;
 
-    public :
-//  ----------------- Canonical Forms ----------------
-        Bureaucrat();
-        Bureaucrat(std::string OneName, int OneGrade);
-        Bureaucrat(Bureaucrat const& clap);
-        Bureaucrat& operator=(Bureaucrat const& clap);
-        ~Bureaucrat();
+    public:
+//  ----------- Canonical Forms -----------
+        AForm();
+        AForm(std::string n, int gs, int ge);
+        AForm(AForm const& clap);
+        AForm& operator=(AForm const& clap);
+        virtual ~AForm();
 
 //  ------------- custom exception class --------------
     class GradeTooHighException: public std::exception{
@@ -36,14 +41,15 @@ class Bureaucrat{
     class GradeTooLowException: public std::exception{
         const char* what() const throw();
     };
-    
+
 //  ---- Members Functions ----
+    void beSigned(Bureaucrat b);
     std::string getName() const;
-    int getGrade()const;
-    void increment();
-    void decrement();
+    int getGradeS() const;
+    int getGradeE() const;
+    bool getStat();
 };
 
-std::ostream& operator<<(std::ostream& output, const Bureaucrat& obj);
+std::ostream& operator<<(std::ostream& output, const AForm& obj);
 
 #endif

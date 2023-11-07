@@ -1,6 +1,7 @@
-NAME = Form
+NAME = ex02
 
-SRC = main.cpp Bureaucrat.cpp Form.cpp
+SRC = main.cpp Bureaucrat.cpp AForm.cpp PresidentialPardonForm.cpp \
+	ShrubberyCreationForm.cpp RobotomyRequestForm.cpp
 
 RM = rm -f
 CC = c++

@@ -1,20 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Form.cpp                                           :+:      :+:    :+:   */
+/*   AForm.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: shilal <shilal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 18:16:11 by shilal            #+#    #+#             */
-/*   Updated: 2023/11/07 15:15:21 by shilal           ###   ########.fr       */
+/*   Updated: 2023/11/07 15:56:39 by shilal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Form.hpp"
+#include "AForm.hpp"
 
-Form::Form(): name("leader"), gradeS(1), gradeE(1){}
+AForm::AForm(): name("leader"), gradeS(1), gradeE(1){
+    
+}
 
-Form::Form(std::string n, int gs, int ge): name(n), gradeS(gs), gradeE(ge){
+AForm::AForm(std::string n, int gs, int ge): name(n), gradeS(gs), gradeE(ge){
     if (gradeS < 1)
         throw GradeTooHighException();
     else if (gradeS > 150)
@@ -25,42 +27,42 @@ Form::Form(std::string n, int gs, int ge): name(n), gradeS(gs), gradeE(ge){
         throw GradeTooLowException();
 }
 
-Form::Form(Form const& clap): name(clap.name), gradeS(clap.gradeS), gradeE(clap.gradeE){
+AForm::AForm(AForm const& clap): name(clap.name), gradeS(clap.gradeS), gradeE(clap.gradeE){
     statu = clap.statu;
 }
 
-Form& Form::operator=(Form const& clap){
+AForm& AForm::operator=(AForm const& clap){
     this->statu = clap.statu;
     return (*this);
 }
 
-Form::~Form(){}
+AForm::~AForm(){}
 
-std::string Form::getName() const { return (name);}
+std::string AForm::getName() const { return (name);}
 
-int Form::getGradeS() const { return (gradeS); }
+int AForm::getGradeS() const { return (gradeS); }
 
-int Form::getGradeE() const { return (gradeE); }
+int AForm::getGradeE() const { return (gradeE); }
 
-bool Form::getStat(){ return (statu); }
+bool AForm::getStat(){ return (statu); }
 
-void Form::beSigned(Bureaucrat b){
+void AForm::beSigned(Bureaucrat b){
     if (b.getGrade() <= gradeS)
         statu = true;
     else
         throw GradeTooLowException();
 }
 
-const char* Form::GradeTooLowException::what() const throw(){
-    return "Form : Out of Range: Grade too Low";
+const char* AForm::GradeTooLowException::what() const throw(){
+    return "AForm : Out of Range: Grade too Low";
 }
 
-const char* Form::GradeTooHighException::what() const throw(){
-    return "Form : Out of Range: Grade too High";
+const char* AForm::GradeTooHighException::what() const throw(){
+    return "AForm : Out of Range: Grade too High";
 }
 
-std::ostream &operator<<(std::ostream &output, const Form &obj){
-    output << obj.getName() << ", form sign grade is " << obj.getGradeS() 
-    << ", form execute grade is " << obj.getGradeE();
+std::ostream &operator<<(std::ostream &output, const AForm &obj){
+    output << obj.getName() << ", AForm sign grade is " << obj.getGradeS() 
+    << ", AForm execute grade is " << obj.getGradeE();
     return (output);
 }
