@@ -1,7 +1,7 @@
 NAME = ex02
 
-SRC = main.cpp Bureaucrat.cpp AForm.cpp PresidentialPardonForm.cpp \
-	ShrubberyCreationForm.cpp RobotomyRequestForm.cpp
+SRC = main.cpp Bureaucrat.cpp AForm.cpp ShrubberyCreationForm.cpp #PresidentialPardonForm.cpp \
+	 RobotomyRequestForm.cpp
 
 RM = rm -f
 CC = c++
