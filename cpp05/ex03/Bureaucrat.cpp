@@ -6,7 +6,7 @@
 /*   By: shilal <shilal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/04 17:10:41 by shilal            #+#    #+#             */
-/*   Updated: 2023/11/14 11:13:56 by shilal           ###   ########.fr       */
+/*   Updated: 2023/11/14 11:11:27 by shilal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,7 @@ void Bureaucrat::signForm(AForm &f)
         std::cout << name << " couldn't sign " << f.getName() << " because " << e.what() << "." << std::endl;
     }
 }
+
 
 const char* Bureaucrat::GradeTooLowException::what() const throw(){
     return "Out of Range: Grade too Low";

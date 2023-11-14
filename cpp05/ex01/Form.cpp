@@ -6,15 +6,18 @@
 /*   By: shilal <shilal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 18:16:11 by shilal            #+#    #+#             */
-/*   Updated: 2023/11/07 15:15:21 by shilal           ###   ########.fr       */
+/*   Updated: 2023/11/10 19:21:20 by shilal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Form.hpp"
 
-Form::Form(): name("leader"), gradeS(1), gradeE(1){}
+Form::Form(): name("leader"), gradeS(1), gradeE(1) {
+    statu = 0;
+}
 
 Form::Form(std::string n, int gs, int ge): name(n), gradeS(gs), gradeE(ge){
+    statu = 0;
     if (gradeS < 1)
         throw GradeTooHighException();
     else if (gradeS > 150)
@@ -42,7 +45,7 @@ int Form::getGradeS() const { return (gradeS); }
 
 int Form::getGradeE() const { return (gradeE); }
 
-bool Form::getStat(){ return (statu); }
+bool Form::getStat() const { return (statu); }
 
 void Form::beSigned(Bureaucrat b){
     if (b.getGrade() <= gradeS)

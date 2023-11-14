@@ -6,7 +6,7 @@
 /*   By: shilal <shilal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 18:16:14 by shilal            #+#    #+#             */
-/*   Updated: 2023/11/07 16:06:21 by shilal           ###   ########.fr       */
+/*   Updated: 2023/11/10 19:18:07 by shilal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ class Form {
     std::string getName() const;
     int getGradeS() const;
     int getGradeE() const;
-    bool getStat();
+    bool getStat() const;
 };
 
 std::ostream& operator<<(std::ostream& output, const Form& obj);

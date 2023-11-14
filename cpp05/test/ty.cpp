@@ -1,24 +1,19 @@
-
 #include <iostream>
+#include <fstream>
 #include <exception>
 
 
-class myexception: public std::exception
-{
-  virtual const char* what() const throw()
-  {
-        return "My exception happened";
-  }
-};
-
 int main () {
-  try
-  {
-    throw myexception();
-  }
-  catch (std::exception& e)
-  {
-    std::cout << e.what() << '\n';
-  }
-  return 0;
+    try
+    {
+        std::ofstream in("hi");
+        if (!in.is_open())
+          throw (std::ios_base::failure("hello from the other side"));
+        else
+          in << "hhhhhhhhh";
+    }
+    catch (std::exception &e)
+    {
+        std::cout << e.what() << std::endl;
+    }
 }

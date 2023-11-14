@@ -6,7 +6,7 @@
 /*   By: shilal <shilal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 15:42:10 by shilal            #+#    #+#             */
-/*   Updated: 2023/11/14 14:15:08 by shilal           ###   ########.fr       */
+/*   Updated: 2023/11/13 19:26:07 by shilal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ RobotomyRequestForm::~RobotomyRequestForm(){}
 
 void RobotomyRequestForm::execute(Bureaucrat const &executor) const{
 
-    time_t t;
+    int t;
     if (!getStat() || executor.getGrade() > this->getGradeE())
         throw GradeTooLowException();
     else {
