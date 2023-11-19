@@ -6,7 +6,7 @@
 /*   By: shilal <shilal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/22 10:53:34 by shilal            #+#    #+#             */
-/*   Updated: 2023/10/24 10:27:24 by shilal           ###   ########.fr       */
+/*   Updated: 2023/10/23 17:35:23 by shilal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ Fixed::Fixed(const Fixed& copy_class){
 }
 
 Fixed::Fixed(const int n){
-    FixedPoint = n << nByt;
+    FixedPoint = n * (1 << nByt);
 }
 
 Fixed::Fixed(const float n){
@@ -42,7 +42,7 @@ Fixed::~Fixed(void){}
 //  ---------> Member Function : 
 
 int Fixed::toInt(void) const{
-    return (FixedPoint >> nByt);
+    return (FixedPoint / (1 << nByt));
 }
 
 float Fixed::toFloat(void) const{
@@ -67,11 +67,11 @@ std::ostream& operator<<(std::ostream& output, const Fixed& fclass){
 // Arithmetic Operators :
 
 Fixed Fixed::operator*(Fixed const& fclass) {
-    return (FixedPoint * fclass.FixedPoint);
+    return (toFloat() * fclass.toFloat());
 }
 
 Fixed Fixed::operator+(Fixed const& fclass) {
-    return (toFloat() + fclass.toFloat() );
+    return (toFloat() + fclass.toFloat());
 }
 
 Fixed Fixed::operator-(Fixed const& fclass) {

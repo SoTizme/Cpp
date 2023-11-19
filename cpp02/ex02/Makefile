@@ -11,6 +11,9 @@ all : $(NAME)
 $(NAME) : $(SRC)
 		$(CC) $(CFLAG) $(SRC) -o $(NAME)
 
+clean : 
+		fclean
+
 fclean :
 		$(RM) $(NAME)
 

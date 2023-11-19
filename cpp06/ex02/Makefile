@@ -1,8 +1,8 @@
 NAME = ex02
-SRC = main.cpp utils.cpp
+SRC = main.cpp Base.cpp
 RM = rm -f
 CC = c++
-CFLAG = -std=c++98 -Wall -Wextra -Werror 
+CFLAG = -std=c++98 -Wall -Wextra -Werror
  
 all : $(NAME)
 

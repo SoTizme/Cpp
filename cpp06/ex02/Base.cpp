@@ -1,40 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.cpp                                          :+:      :+:    :+:   */
+/*   Base.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: shilal <shilal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/18 19:11:54 by shilal            #+#    #+#             */
-/*   Updated: 2023/11/18 19:16:22 by shilal           ###   ########.fr       */
+/*   Updated: 2023/11/19 19:59:38 by shilal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Base.hpp"
+#include "A.hpp"
+#include "B.hpp"
+#include "C.hpp"
 
 Base* generate(void){
 
-    time_t i = time(NULL);
-    while (1){
-        if (i % 2)
-           return (new A);
-        else if (i % 3)
-            return (new B);
-        else
-            return (new C);
-    }
+    int i = std::time(NULL) % 3;
+    if (i == 1)
+        return (new A);
+    else if (i == 2)
+        return (new B);
+    else
+        return (new C);
 }
 
 void identify(Base* p){
-
-    if (dynamic_cast<A*>(p))
-        std::cout << "Type of the object pointed is A" << std::endl;
-    else if (dynamic_cast<B*>(p))
-         std::cout << "Type of the object pointed is B" << std::endl;
-    else if (dynamic_cast<C*>(p))
-         std::cout << "Type of the object pointed is C" << std::endl;
+    if (p){
+        if (dynamic_cast<A*>(p))
+            std::cout << "Type of the object pointed is A" << std::endl;
+        else if (dynamic_cast<B*>(p))
+                std::cout << "Type of the object pointed is B" << std::endl;
+        else if (dynamic_cast<C*>(p))
+                std::cout << "Type of the object pointed is C" << std::endl;
+        else
+            std::cout << "Type of the object pointed is NON" << std::endl;
+    }
     else
-      std::cout << "Type of the object pointed is NON" << std::endl;
+      std::cout << "Type of the object pointed is NULL" << std::endl;
 
 }
 

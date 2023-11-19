@@ -6,7 +6,7 @@
 /*   By: shilal <shilal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 09:34:41 by shilal            #+#    #+#             */
-/*   Updated: 2023/10/23 15:11:09 by shilal           ###   ########.fr       */
+/*   Updated: 2023/10/23 17:34:20 by shilal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ Fixed::Fixed(const Fixed& copy_class){
 
 Fixed::Fixed(const int n){
     std::cout << "Int constructor called" <<std::endl;
-    FixedPoint = n << nByt;
+    FixedPoint = n * (1 << nByt);
 }
 
 Fixed::Fixed(const float n){
@@ -49,7 +49,7 @@ Fixed::~Fixed(void){
 //  ---------> Member Function :
 
 int Fixed::toInt(void) const{
-    return (FixedPoint >> nByt);
+    return (FixedPoint / (1 << nByt));
 }
 
 float Fixed::toFloat(void) const{
