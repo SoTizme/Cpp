@@ -6,7 +6,7 @@
 /*   By: shilal <shilal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/26 19:40:00 by shilal            #+#    #+#             */
-/*   Updated: 2023/10/14 01:28:51 by shilal           ###   ########.fr       */
+/*   Updated: 2023/10/14 01:45:01 by shilal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 
 void    end_of_file(void){
     if (std::cin.eof())
-			exit (0);
+		exit (0);
 }
 
 int    is_digit(std::string d){
@@ -24,7 +24,7 @@ int    is_digit(std::string d){
 	{
 		if (isdigit(d[i]) == 0)
 		{
-			std::cout << "!     Error: Number Phone Is Not Digit     !" << std::endl << std::endl;
+			std::cout << "!     Error: Number Phone Is Not Digit     !" << std::endl;
 			return (-1);
 		}
 	}
@@ -34,13 +34,13 @@ int    is_digit(std::string d){
 int	if_empty(std::string s){
 	if (s == "")
 	{
-		std::cout << "!               Error: Empty              !" << std::endl << std::endl;
+		std::cout << "!               Error: Empty              !" << std::endl;
 		return (-1);	
 	}
 	return (1);
 }
 
-PhoneBook::PhoneBook(void) : id(0), i(0){
+PhoneBook::PhoneBook(void) : id(0), len(0){
 
 	std::cout << " __________________________________________" << std::endl;
 	std::cout << "|                                          |" << std::endl;
@@ -86,13 +86,13 @@ void    PhoneBook::ft_add(void)
 		}
 		while (1){
 			std::cout << "Enter Darkest secret"<< std::endl; std::getline(std::cin, e); end_of_file();
-			if (if_empty(e) == -1)
+			if (if_empty(e) == 1)
 				break;
 		}
 	id %= 8;
 	this->Tab[id].set_contact(id + 1, a, b, c, d, e);
-	if (this->i < 8)
-		this->i++;
+	if (len < 8)
+		len++;
 	id++;
 	std::cout << " __________________________________________" << std::endl;
 	std::cout << "|                                          |" << std::endl;
@@ -111,7 +111,7 @@ void    PhoneBook::ft_search(void)
         std::cout << "!        Error: Ther's NO Cantacts         !" << std::endl;
         return ;
     }
-    for (int i = 0; i < this->i; i++){
+    for (int i = 0; i < len; i++){
         this->Tab[i].print_all_contact();
     }
 	while (1)
@@ -124,10 +124,10 @@ void    PhoneBook::ft_search(void)
 		if (s.length() == 1 && s.find_first_not_of("12345678"))
 		{
 			nb = (int)(s[0] - 48) - 1;
-			if (nb >= this->i)
+			if (nb >= len)
 			{
 				std::cout << "!      Ther's no Cantact in this Index     !" << std::endl;
-				continue;
+				return ;
 			}	
 			else
 				return (this->Tab[nb].get_contact());

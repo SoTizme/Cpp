@@ -6,7 +6,7 @@
 /*   By: shilal <shilal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/28 18:01:33 by shilal            #+#    #+#             */
-/*   Updated: 2023/10/14 01:00:26 by shilal           ###   ########.fr       */
+/*   Updated: 2023/10/14 03:37:04 by shilal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,13 @@
 #include "Contact.hpp"
 
 std::string	if_dot(std::string str){
+
+	size_t pos;
+
+	while ((pos = str.find("\t")) != std::string::npos)
+		str.replace(pos , 1, "    ");
 	if (str.length() > 9)
-		return (str.substr(0, 10).replace(9, 10, "."));
+		return (str.substr(0, 10).replace(9, 1, "."));
 	return (str);
 }
 

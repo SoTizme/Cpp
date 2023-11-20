@@ -6,7 +6,7 @@
 /*   By: shilal <shilal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/28 18:07:52 by shilal            #+#    #+#             */
-/*   Updated: 2023/10/31 16:14:15 by shilal           ###   ########.fr       */
+/*   Updated: 2023/11/03 15:16:29 by shilal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 Brain::Brain(){
     std::cout << "Brain : Default Constructor called" << std::endl;
     for (int i = 0; i < 100; i++)
-        ideas[i] = "ideas";
+        ideas[i] = "idea";
 }
 
 Brain::Brain(Brain const& clap){

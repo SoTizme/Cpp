@@ -6,7 +6,7 @@
 /*   By: shilal <shilal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 15:42:10 by shilal            #+#    #+#             */
-/*   Updated: 2023/11/14 14:15:08 by shilal           ###   ########.fr       */
+/*   Updated: 2023/11/15 12:20:24 by shilal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void RobotomyRequestForm::execute(Bureaucrat const &executor) const{
     else {
         t = time(NULL);
         if (t == -1)
-            throw std::ios_base::failure("time() Fail");
+            throw std::runtime_error("time() Fail");
         else if (t % 2)
             std::cout << target <<" has been robotomized successfully" << std::endl;
         else

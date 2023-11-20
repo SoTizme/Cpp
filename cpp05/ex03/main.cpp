@@ -6,7 +6,7 @@
 /*   By: shilal <shilal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/04 17:10:37 by shilal            #+#    #+#             */
-/*   Updated: 2023/11/14 13:17:39 by shilal           ###   ########.fr       */
+/*   Updated: 2023/11/15 17:01:58 by shilal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,14 +18,20 @@
 
 int main()
 {
-	try {
-		Intern someRandomIntern;
-		AForm* rrf;
-		rrf = someRandomIntern.makeForm("robotomy request", "Bender");
-		std::cout << "The sign Grade of " << rrf->getName() << " is " << rrf->getGradeE() << std::endl;
-	}
-	catch (std::exception& e) {
-		std::cerr << e.what() << std::endl;
-	}
+    try {
+        Bureaucrat Burea("Burea", 45);
+        Intern someRandomIntern;
+        AForm* rrf;
+        rrf = someRandomIntern.makeForm("robotomy request", "Bender");
+
+        std::cout << "Sign " << rrf->getStat() << std::endl;
+        Burea.signForm(*rrf);
+        std::cout << "Sign " << rrf->getStat() << std::endl;
+        Burea.executeForm(*rrf);
+        delete rrf;
+    }
+    catch(std::exception& e) {
+        std::cerr << e.what() << std::endl;
+    }
 	return 0;
 }

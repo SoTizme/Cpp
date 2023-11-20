@@ -6,26 +6,22 @@
 /*   By: shilal <shilal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 11:15:17 by shilal            #+#    #+#             */
-/*   Updated: 2023/11/15 15:42:23 by shilal           ###   ########.fr       */
+/*   Updated: 2023/11/15 12:17:43 by shilal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Intern.hpp"
 
-Intern::Intern(){
-}
+Intern::Intern(){}
 
-Intern::Intern(Intern const &clap){
-    *this = clap;
-}
+Intern::Intern(Intern const &clap){ *this = clap; }
 
 Intern& Intern::operator=(Intern const &clap){
     (void)clap;
     return (*this);
 }
 
-Intern::~Intern(){
-}
+Intern::~Intern(){}
 
 const char* Intern::FromNotCreated::what() const throw(){
     return "The FormName Not Found";

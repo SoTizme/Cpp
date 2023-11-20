@@ -6,7 +6,7 @@
 /*   By: shilal <shilal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/04 17:10:41 by shilal            #+#    #+#             */
-/*   Updated: 2023/11/14 11:13:56 by shilal           ###   ########.fr       */
+/*   Updated: 2023/11/15 17:00:25 by shilal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ Bureaucrat::Bureaucrat(): name("leader"){
 }
 
 Bureaucrat::Bureaucrat(std::string OneName, int OneGrade): name(OneName){
+
     if (OneGrade < 1)
         throw GradeTooHighException();
     else if (OneGrade > 150)
@@ -65,7 +66,7 @@ void Bureaucrat::signForm(AForm &f)
         std::cout << name << " signed " << f.getName() << std::endl;
     }
     catch (std::exception &e) {
-        std::cout << name << " couldn't sign " << f.getName() << " because " << e.what() << "." << std::endl;
+        std::cerr << name << " couldn't sign " << f.getName() << " because " << e.what() << "." << std::endl;
     }
 }
 
@@ -89,7 +90,7 @@ void Bureaucrat::executeForm(AForm const &form){
         std::cout << this->getName() << " executed " << form.getName() << std::endl;
     }
     catch(const std::exception& e) {
-        std::cerr << e.what() << '\n';
+        std::cerr << e.what() << std::endl;
     } 
     
 }

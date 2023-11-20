@@ -6,7 +6,7 @@
 /*   By: shilal <shilal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 15:20:19 by shilal            #+#    #+#             */
-/*   Updated: 2023/11/03 13:40:58 by shilal           ###   ########.fr       */
+/*   Updated: 2023/11/03 15:49:04 by shilal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,23 +14,24 @@
 
 Character::Character(){
     name = "Default";
-    ptr = 0;
     error = 0;
     for (int i = 0; i < 4; i++)
         inventory[i] = 0;
+    for (int i = 0; i < 4; i++)
+        ptr[i] = 0;
 }
 
 Character::Character(std::string const& n){
     name = n;
-    ptr = 0;
     error = 0;
     for (int i = 0; i < 4; i++)
         inventory[i] = 0;
+    for (int i = 0; i < 4; i++)
+        ptr[i] = 0;
 }
 
 Character::Character(Character const& clap){
     name = clap.name;
-    ptr = clap.ptr;
     error = clap.error;
     for (int i = 0; i < 4; i++)
     {
@@ -39,12 +40,18 @@ Character::Character(Character const& clap){
         else
             this->inventory[i] = 0;
     }
+    for (int i = 0; i < 4; i++)
+    {
+        if (clap.ptr[i])
+            this->ptr[i] = clap.ptr[i]->clone();
+        else
+            this->ptr[i] = 0;
+    }
 }
 
 Character& Character::operator=(Character const& a){
 
     name = a.name;
-    ptr = a.ptr;
     error = a.error;
     for (int i = 0; i < 4; i++){
         if (inventory[i])
@@ -57,15 +64,29 @@ Character& Character::operator=(Character const& a){
         else
             this->inventory[i] = 0;
     }
+    for (int i = 0; i < 4; i++){
+        if (ptr[i])
+            delete ptr[i];
+    }
+    for (int i = 0; i < 4; i++)
+    {
+        if (a.ptr[i])
+            this->ptr[i] = a.ptr[i]->clone();
+        else
+            this->ptr[i] = 0;
+    }
     return (*this);
 }
 
 Character::~Character(){
-    if (ptr)
-        delete ptr;
+
     for (int i = 0; i < 4; i++){
         if (this->inventory[i])
             delete this->inventory[i];
+    }
+    for (int i = 0; i < 4; i++){
+        if (ptr[i])
+            delete ptr[i];
     }
     if (error)
         delete error;
@@ -87,19 +108,18 @@ void Character::equip(AMateria* m){
             return ;
         }
     }
-    if (error != m)
-        delete error;
-    error = m;
-
 }
 
 void Character::unequip(int idx){
     
-    if (inventory[idx])
+    if ((idx >=0  && idx < 4) && inventory[idx])
     {
-        if (ptr)
-            delete ptr;
-        ptr = inventory[idx];
+        for (int i = 0; i < 4; i++){
+            if (!ptr[i]){
+                ptr[i] = inventory[idx];
+                break ;
+            }
+        }
         inventory[idx] = 0;
     }
 }

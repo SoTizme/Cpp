@@ -6,14 +6,13 @@
 /*   By: shilal <shilal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 18:16:14 by shilal            #+#    #+#             */
-/*   Updated: 2023/11/10 19:18:07 by shilal           ###   ########.fr       */
+/*   Updated: 2023/11/15 18:11:36 by shilal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FORM_HPP
 #define FORM_HPP
 
-#include <iostream>
 #include "Bureaucrat.hpp"
 
 class Bureaucrat;

@@ -6,7 +6,7 @@
 /*   By: shilal <shilal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 15:20:22 by shilal            #+#    #+#             */
-/*   Updated: 2023/11/03 13:41:21 by shilal           ###   ########.fr       */
+/*   Updated: 2023/11/03 15:25:22 by shilal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ class Character : public ICharacter
     private:
         std::string name;
         AMateria *inventory[4];
-        AMateria *ptr;
+        AMateria *ptr[4];
         AMateria *error;
     
     public :

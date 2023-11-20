@@ -6,7 +6,7 @@
 /*   By: shilal <shilal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 18:16:11 by shilal            #+#    #+#             */
-/*   Updated: 2023/11/13 20:19:22 by shilal           ###   ########.fr       */
+/*   Updated: 2023/11/15 18:32:24 by shilal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ const char* AForm::GradeTooHighException::what() const throw(){
 }
 
 std::ostream &operator<<(std::ostream &output, const AForm &obj){
-    output << obj.getName() << ", AForm sign grade is " << obj.getGradeS() 
-    << ", AForm execute grade is " << obj.getGradeE();
+    output << obj.getName() << ", grade sign is " << obj.getGradeS() 
+    << ", grade execute is " << obj.getGradeE() << ", state is " << obj.getStat();
     return (output);
 }

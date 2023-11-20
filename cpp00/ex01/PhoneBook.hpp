@@ -6,7 +6,7 @@
 /*   By: shilal <shilal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/26 19:39:36 by shilal            #+#    #+#             */
-/*   Updated: 2023/09/28 18:40:37 by shilal           ###   ########.fr       */
+/*   Updated: 2023/10/14 01:38:01 by shilal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ class PhoneBook {
     std::string  d;
     std::string  e;
 
-    int i;
+    int len;
 
     public :
     

@@ -6,7 +6,7 @@
 /*   By: shilal <shilal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/04 17:10:41 by shilal            #+#    #+#             */
-/*   Updated: 2023/11/13 20:04:11 by shilal           ###   ########.fr       */
+/*   Updated: 2023/11/15 16:53:56 by shilal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ void Bureaucrat::increment() {
 
 void Bureaucrat::decrement() {
     if ((grade + 1) > 150)
-            throw GradeTooLowException();
+        throw GradeTooLowException();
     else
         grade++;
 }
@@ -65,7 +65,7 @@ void Bureaucrat::signForm(Form &f)
         std::cout << name << " signed " << f.getName() << std::endl;
     }
     catch (std::exception &e) {
-        std::cout << name << " couldn't sign " << f.getName() << " because " << e.what() << "." << std::endl;
+        std::cerr << name << " couldn't sign " << f.getName() << " because " << e.what() << "." << std::endl;
     }
 }
 

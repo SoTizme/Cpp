@@ -149,16 +149,58 @@
 // }
 
 
+// --------------------------------------------------------------------------
+// ---------------------------> reinterpret_cast <---------------------------
+// --------------------------------------------------------------------------
+// int main(){
+
+//     int j[3] = {304200472, 979, 304200472};
+
+//     char *c = reinterpret_cast<char*>(j);
+
+//     // 304200472 =  00010010 00100001 10111011 00011000
+//     //                 18       33      -69       24
+//     //979 =  00000000 00000000 00000011 11010011
+//     //                            3       -45
+
+//     int i = 0;
+//     while (i < 12)
+//     {
+//         std::cout << (int)c[i] <<std::endl;
+//         i++;
+//     }
+//     return 0;
+// }
+// ---------------------------------------------------------------------------
+// ---------------------------------------------------------------------------
+
+class Base {
+    public:
+        virtual void print(){
+            std::cout << "hello from base class"<< std::endl;
+        }
+};
+
+class child : public Base{
+    public:
+    void print(){
+        std::cout << "hello from chlid class"<< std::endl;
+    }
+};
+
+class err : public Base{
+    public:
+    void print(){
+        std::cout << "hello from chlid class"<< std::endl;
+    }
+};
+
 int main(){
-
-   // int i = 50;          // 00000000 00000000 00000000 00000000 00110010
-    int j = 555481135; //  00000000 00100001 00011011 11111000 00101111
-    char *c = "zzzz";  //   01000001 01000001 01000001 01000001 01000001
-
-
-    int *i = reinterpret_cast<int*>(c);
-
-    //1094795585
-    //2054847098
-    std::cout << *i <<std::endl;
+    child j;
+    // Base b;
+    // Base *c = dynamic_cast<Base*>(&j); // upcasting
+    Base *c = &j;
+    child *non = dynamic_cast<child*>(c); // downcasting
+    if (non)
+        non->print();
 }

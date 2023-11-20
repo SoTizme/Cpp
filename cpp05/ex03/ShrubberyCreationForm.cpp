@@ -6,7 +6,7 @@
 /*   By: shilal <shilal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 15:42:14 by shilal            #+#    #+#             */
-/*   Updated: 2023/11/13 19:10:27 by shilal           ###   ########.fr       */
+/*   Updated: 2023/11/15 18:13:09 by shilal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ void ShrubberyCreationForm::execute(Bureaucrat const &executor) const{
             std::ofstream file;
             file.open(target + "_shrubbery");
             if (!file.is_open())
-                throw (std::ios_base::failure(target + "_shrubbery "));
+                throw (std::runtime_error("This " + target + "_shrubbery File Failed"));
 
             file    << "     ccee88oo\n"
                     << "  C8O8O8Q8PoOb o8oo\n"

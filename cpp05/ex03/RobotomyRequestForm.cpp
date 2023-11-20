@@ -6,7 +6,7 @@
 /*   By: shilal <shilal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 15:42:10 by shilal            #+#    #+#             */
-/*   Updated: 2023/11/13 19:26:07 by shilal           ###   ########.fr       */
+/*   Updated: 2023/11/15 12:17:43 by shilal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,13 +33,13 @@ RobotomyRequestForm::~RobotomyRequestForm(){}
 
 void RobotomyRequestForm::execute(Bureaucrat const &executor) const{
 
-    int t;
+    time_t t;
     if (!getStat() || executor.getGrade() > this->getGradeE())
         throw GradeTooLowException();
     else {
         t = time(NULL);
         if (t == -1)
-            throw std::ios_base::failure("time() Fail");
+            throw std::runtime_error("time() Fail");
         else if (t % 2)
             std::cout << target <<" has been robotomized successfully" << std::endl;
         else
