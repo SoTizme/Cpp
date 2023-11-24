@@ -14,11 +14,20 @@
 
 int main(){
 
-    int arr[3] = {44, 8, 9};
-    iter(arr, 3, print);
-    
-    char s[7] = "shilal";
-    iter(s, 6, print);
+    {
+        int arr[3] = {44, 8, 9};
+        iter<int , int>(arr, 3, print);
+    }
+    std::cout << "-----------------" << std::endl;
+    {
+        char arr[6] = "hilal";
+        iter<char , char>(arr, 5, print);
+    }
+    std::cout << "-----------------" << std::endl;  
+    {
+        double arr[3] = {4.55, 8.94, 9.01};
+        iter<double , double>(arr, 3, print);
+    }
 
     return 0;
 }

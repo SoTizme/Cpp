@@ -6,27 +6,51 @@
 /*   By: shilal <shilal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 09:02:25 by shilal            #+#    #+#             */
-/*   Updated: 2023/11/22 11:16:41 by shilal           ###   ########.fr       */
+/*   Updated: 2023/11/24 10:20:45 by shilal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Array.hpp"
 
-template <typename T> int Array<T>::size(void){
-    return len;
-}
-
 int main(){
-    Array <int>a(9);
-    Array <int>B(2);
-    a = B;
 
-    try{
-        std::cout << a[5] << std::endl;
-    }
-    catch(const char *e){
-        std::cerr << "Exception " << e << std::endl;
+    int Max= 750;
+
+    Array<char> numbers(Max);
+    char* mirror = new char[Max];
+
+    char a = 'a';
+    for (int i = 0; i < Max; i++){
+        numbers[i] = a;
+        mirror[i] = a;
+        a++;
+        if (a > 'z')
+            a = 'a';
     }
     
+    {
+        Array<char> tmp = numbers;
+        Array<char> test(tmp);
+    }
+
+    try{
+        numbers[-2] = 0;
+    }
+    catch(const std::exception& e){
+        std::cerr << e.what() << '\n';
+    }
+    try{
+        numbers[Max] = 0;
+    }
+    catch(const std::exception& e){
+        std::cerr << e.what() << '\n';
+    }
+
+    for (int i = 0; i < Max; i++){
+        std::cout << numbers[i] << " ";
+    }
+    std::cout << "\n";
+
+    delete [] mirror;
     return 0;
 }

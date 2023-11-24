@@ -15,12 +15,12 @@
 
 #include <iostream>
 
-template <typename I> void print(I a){
+template <typename T> void print(T a){
     std::cout << a << std::endl;
 };
 
-template <typename I>
-void iter (I *ptr, int len, void (*func_print)(I)){
+template <typename I, typename T> 
+void iter (I *ptr, int len, void (*func_print)(T)){
     if (len < 0){
         std::cerr << "Invalid argument : lenght" << std::endl;
         return ;
@@ -29,10 +29,8 @@ void iter (I *ptr, int len, void (*func_print)(I)){
         std::cerr << "Invalid argument : array NULL" << std::endl;
         return ;
     }
-    for (int i = 0; i < len; i++){
+    for (int i = 0; i < len; i++)
         func_print(ptr[i]);
-    }
 }
-
 
 #endif
