@@ -1,5 +1,6 @@
-NAME = a.out
-SRC = t.cpp
+NAME = ex02
+SRC = main.cpp
+
 RM = rm -f
 CC = c++
 CFLAG = -std=c++98 -Wall -Wextra -Werror
