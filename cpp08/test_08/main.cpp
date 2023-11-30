@@ -1,37 +1,28 @@
 #include <iostream>
 #include <vector>
 
-using namespace std;
-
-int main()
+int main ()
 {
-	vector<int> g1;
-    vector<int>::iterator ptr;
+  std::vector<int> myvector (3);
+  std::vector<int>::iterator it;
 
-	for (int i = 1; i <= 5; i++)
-		g1.push_back(i);
+//   it = myvector.begin();
 
-	cout << "Size : " << g1.size();
-	cout << "\nCapacity : " << g1.capacity();
-	cout << "\nMax_Size : " << g1.max_size();
+//   myvector.insert (it,1,300);
 
-	// resizes the vector size to 4
-	g1.resize(9);
+  // "it" no longer valid, get a new one:
+//   it = myvector.begin();
 
-	// prints the vector size after resize()
-	cout << "\nSize : " << g1.size();
+//   std::vector<int> anothervector (2,400);
+//   myvector.insert (it+2,anothervector.begin(),anothervector.end());
 
-	// checks if the vector is empty or not
-	if (g1.empty() == false)
-		cout << "\nVector is not empty";
-	else
-		cout << "\nVector is empty";
+//   int myarray [] = { 501,502,503 };
+//   myvector.insert (myvector.begin(), myarray, myarray+3);
 
-	// Shrinks the vector
-	g1.shrink_to_fit();
-	cout << "\nVector elements are: ";
-	for (ptr = g1.begin(); ptr != g1.end(); ptr++)
-		cout << *ptr << " ";
-    std::cout << std::endl;
-	return 0;
+  std::cout << "myvector contains:";
+  for (it=myvector.begin(); it<myvector.end(); it++)
+    std::cout << ' ' << &it;
+  std::cout << '\n';
+
+  return 0;
 }

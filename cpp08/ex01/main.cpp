@@ -5,38 +5,33 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: shilal <shilal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/27 21:08:31 by shilal            #+#    #+#             */
-/*   Updated: 2023/11/30 15:58:04 by shilal           ###   ########.fr       */
+/*   Created: 2023/11/30 16:58:00 by shilal            #+#    #+#             */
+/*   Updated: 2023/11/30 19:32:22 by shilal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "easyfind.hpp"
-
-#include <iostream>
-#include <vector>
+#include "Span.hpp"
 
 int main(){
-    int arr[4] = {0,55,8,80};
-	std::vector <int> ptr;
-	for (int i = 0; i < 4; i++) {
-		ptr.push_back(arr[i]);
-	}
 
-	char s[6] = "hilak";
-	std::vector <char> str;
-	for (int i = 0; i < 6; i++) {
-		str.push_back(s[i]);
-	}
+    Span sp = Span(5);
+    sp.addNumber(6);
+    sp.addNumber(3);
+    sp.addNumber(17);
+    sp.addNumber(9);
+    sp.addNumber(11);
 
-	std::string st = "hiiiiloo";
-
-	try{
-		easyfind(st, 'l');
-		easyfind(st, 'i');
-		easyfind(st, 'k');
-	}
-	catch(const std::exception& e){
-		std::cerr << e.what() << std::endl;
-	}
-	
+    try {
+        sp.addNumber(55);
+        sp.addNumber(6);
+        sp.addNumber(9);
+    }
+    catch (std::exception &e){
+        std::cout << e.what() << std::endl;
+    }
+    
+    std::cout << sp.shortestSpan() << std::endl;
+    std::cout << sp.longestSpan() << std::endl;
+    // sp.print();
+    return 0;
 }

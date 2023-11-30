@@ -6,7 +6,7 @@
 /*   By: shilal <shilal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/27 21:08:29 by shilal            #+#    #+#             */
-/*   Updated: 2023/11/29 18:03:13 by shilal           ###   ########.fr       */
+/*   Updated: 2023/11/30 15:09:20 by shilal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,8 @@
 
 template <typename T> void easyfind(T arr, int f)
 {
-    std::vector<int>::iterator n;
-    n = find(arr.begin(), arr.end(), f);
-    if (n == arr.end())
-        throw std::out_of_range("Not Found");
+    if (find(arr.begin(), arr.end(), f) == arr.end())
+        throw std::out_of_range("The occurrence Not Found");
     std::cout << "The occurrence Found" << std::endl;
 }
 

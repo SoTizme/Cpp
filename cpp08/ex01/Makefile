@@ -1,6 +1,6 @@
-NAME = ex00
-SRC = main.cpp
-HFL = easyfind.hpp
+NAME = ex01
+SRC = main.cpp Span.cpp
+HFL = Span.hpp
 
 RM = rm -f
 CC = c++
