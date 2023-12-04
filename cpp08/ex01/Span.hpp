@@ -6,7 +6,7 @@
 /*   By: shilal <shilal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 16:57:56 by shilal            #+#    #+#             */
-/*   Updated: 2023/11/30 19:03:28 by shilal           ###   ########.fr       */
+/*   Updated: 2023/12/01 16:44:02 by shilal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 class Span{
     
     std::vector<int> arr;
+    std::vector<int> Sarr;
     unsigned int N;
     unsigned int Fixed;
 
@@ -33,15 +34,13 @@ class Span{
     int shortestSpan(void);
     int longestSpan(void);
     
-    
     void print(){
-        std::vector<int>::iterator t = arr.begin();
-        while (t != arr.end())
+        std::vector<int>::iterator t = Sarr.begin();
+        while (t != Sarr.end())
         {
             std::cout << *t << std::endl;
             t++;
         }
-        
     }
 };
 
