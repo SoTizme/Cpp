@@ -6,21 +6,34 @@
 /*   By: shilal <shilal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 16:58:00 by shilal            #+#    #+#             */
-/*   Updated: 2023/12/03 21:48:22 by shilal           ###   ########.fr       */
+/*   Updated: 2023/12/04 18:39:40 by shilal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Span.hpp"
 
 int main(){
+    try {
 
-    Span sp = Span(5);
-    sp.addNumber(6);
-    sp.addNumber(3);
-    sp.addNumber(1);
+        Span sp = Span(5);
+        // sp.addNumber(6);
+        // sp.addNumber(3);
+        // sp.addNumber(1);
+        // sp.addNumber(6);
+        // sp.addNumber(3);
 
-    
-    std::cout << sp.shortestSpan() << std::endl;
-    std::cout << sp.longestSpan() << std::endl;
+        
+        int arr[] = {10, 20};
+        int n = sizeof(arr)/sizeof(arr[0]);
+        const std::vector<int> vect(arr, arr+n);
+
+        sp.AddManyNumbers(vect);
+        std::cout << "the short is : " << sp.shortestSpan() << std::endl;
+        std::cout << "the longe is : "<< sp.longestSpan() << std::endl;
+
+    }
+    catch(const std::exception& e){
+        std::cerr << e.what() << '\n';
+    }
     return 0;
 }
