@@ -4,7 +4,7 @@ HFL = MutantStack.hpp
 
 RM = rm -f
 CC = c++
-CFLAG = -std=c++98 -Wall -Wextra -Werror
+CFLAG = -std=c++98 -Wall -Wextra -Werror -fsanitize=address
  
 all : $(NAME)
 

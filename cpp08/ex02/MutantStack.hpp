@@ -6,7 +6,7 @@
 /*   By: shilal <shilal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 21:48:42 by shilal            #+#    #+#             */
-/*   Updated: 2023/12/05 23:25:59 by shilal           ###   ########.fr       */
+/*   Updated: 2023/12/06 17:43:47 by shilal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,24 +20,20 @@ template <typename T>
 class MutantStack : public std::stack<T>{
 
     public :
-        MutantStack();
-        MutantStack(const MutantStack& copy);
-        MutantStack& operator=(const MutantStack& copy);
-        ~MutantStack();
+        MutantStack(){}
+        MutantStack(const MutantStack& copy): std::stack<T>(copy){}
+        MutantStack& operator=(const MutantStack& copy){
+            this->c = copy.c;
+            return (*this);
+        }
+        ~MutantStack(){};
+    
+    typedef typename std::stack<T>::container_type::iterator iterator;
 
+    iterator begin(){ return this->c.begin(); }
+
+    iterator end(){ return this->c.end(); }
 };
 
-template <typename T> MutantStack<T>::MutantStack(){}
-
-template <typename T>
-MutantStack<T>::MutantStack(const MutantStack& copy): std::stack<T>(copy){}
-
-template <typename T> 
-MutantStack<T>& MutantStack<T>::operator=(const MutantStack& copy){
-    (void)copy;
-    return (*this);
-}
-
-template <typename T> MutantStack<T>::~MutantStack(){}
 
 #endif
