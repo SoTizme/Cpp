@@ -6,7 +6,7 @@
 /*   By: shilal <shilal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 21:48:39 by shilal            #+#    #+#             */
-/*   Updated: 2023/12/06 17:49:59 by shilal           ###   ########.fr       */
+/*   Updated: 2023/12/08 18:05:57 by shilal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,14 +41,14 @@ int main()
 
     std::cout << "-------------\n";
     // Copy constructor and Copy assignment
-    MutantStack<int> s(mstack);
+    MutantStack<int> s1(mstack);
     MutantStack<int> p;
-    p = s;
-    MutantStack<int>::iterator it = p.begin();
-    while (it != p.end())
+    p = s1;
+    MutantStack<int>::iterator it1 = p.begin();
+    while (it1 != p.end())
     {
-        std::cout << *it << std::endl;
-        ++it;
+        std::cout << *it1 << std::endl;
+        ++it1;
     }
     return 0;
     }

@@ -6,7 +6,7 @@
 /*   By: shilal <shilal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/27 21:08:29 by shilal            #+#    #+#             */
-/*   Updated: 2023/11/30 15:09:20 by shilal           ###   ########.fr       */
+/*   Updated: 2023/12/08 18:13:17 by shilal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 #define EASYFIND_HPP
 
 #include <iostream>
-#include <vector>
 
 template <typename T> void easyfind(T arr, int f)
 {

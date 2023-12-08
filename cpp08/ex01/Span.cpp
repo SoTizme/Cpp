@@ -6,7 +6,7 @@
 /*   By: shilal <shilal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 16:57:53 by shilal            #+#    #+#             */
-/*   Updated: 2023/12/04 18:39:52 by shilal           ###   ########.fr       */
+/*   Updated: 2023/12/08 18:44:57 by shilal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,7 @@ Span::Span(unsigned int n): N(n) {}
 
 Span::Span(const Span &copy){ *this = copy; }
 
-Span &Span::operator=(const Span &copy)
-{
+Span &Span::operator=(const Span &copy){
     if (this == &copy)
         return *this;
     arr = copy.arr;
@@ -28,7 +27,6 @@ Span &Span::operator=(const Span &copy)
 }
 
 Span::~Span(){}
-
 
 void Span::addNumber(int nb){
     if (arr.size() >= N)
@@ -62,8 +60,8 @@ int Span::shortestSpan(void){
     return (result);
 }
 
-void Span::AddManyNumbers(const std::vector<int> &ptr)
-{
+void Span::AddManyNumbers(const std::vector<int> &ptr){
+
     if (ptr.size() > (N - arr.size()))
         throw Span::FullVector();
     arr.insert(arr.end(), ptr.begin(), ptr.end());
