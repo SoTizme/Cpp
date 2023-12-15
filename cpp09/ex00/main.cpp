@@ -5,27 +5,20 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: shilal <shilal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/30 16:58:00 by shilal            #+#    #+#             */
-/*   Updated: 2023/12/09 09:21:55 by shilal           ###   ########.fr       */
+/*   Created: 2023/12/13 09:18:20 by shilal            #+#    #+#             */
+/*   Updated: 2023/12/14 16:16:30 by shilal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Span.hpp"
+#include "BitcoinExchange.hpp"
 
-int main(){
+int main(int ac, char **av){
+
     try {
-        Span sp = Span(5);
-        sp.addNumber(6);
-        sp.addNumber(3);
-        sp.addNumber(17);
-        sp.addNumber(9);
-        sp.addNumber(11);
-    
-        std::cout << "the short is : " << sp.shortestSpan() << std::endl;
-        std::cout << "the longe is : "<< sp.longestSpan() << std::endl;
-    
-        std::vector<int> f(3, 7);
-        sp.AddManyNumbers(f);
+        if (ac != 2)
+            throw std::runtime_error("Error: could not open file.");
+        is_Directory(av[1]);
+        BitcoinExchange DB(av[1]);
     }
     catch(const std::exception& e){
         std::cerr << e.what() << '\n';

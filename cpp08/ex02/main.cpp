@@ -6,7 +6,7 @@
 /*   By: shilal <shilal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 21:48:39 by shilal            #+#    #+#             */
-/*   Updated: 2023/12/08 20:44:11 by shilal           ###   ########.fr       */
+/*   Updated: 2023/12/09 13:45:00 by shilal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,34 +41,5 @@ int main()
         ++it;
     }
     std::stack<int> s(mstack);
-
-    std::cout << "---------- More Tests ----------\n\n";
-    // Copy constructor and Copy assignment
-    {
-        std::cout << "Copy constructor : ";
-        MutantStack<int> s1(mstack);
-        MutantStack<int>::iterator ite = s1.end();
-        for (MutantStack<int>::const_iterator it = s1.cbegin(); it != ite; it++)
-            std::cout << *it << " ";
-        std::cout << std::endl;
-
-        std::cout << "Copy assignment  : ";
-        MutantStack<int> s2;
-        s2 = s1;
-         MutantStack<int>::iterator ite1 = s2.end();
-        for (MutantStack<int>::const_iterator it1 = s2.cbegin(); it1 != ite1; it1++)
-            std::cout << *it1 << " ";
-        std::cout << std::endl;
-    }
-
-    // Const
-    std::cout << "Const stack      : ";
-    const MutantStack<int> p(mstack);
-    MutantStack<int>::const_iterator ite1 = p.cend();
-
-    for (MutantStack<int>::const_iterator it1 = p.cbegin(); it1 != ite1; it1++)
-        std::cout << *it1 << " ";
-    std::cout << std::endl;
-
     return 0;
     }

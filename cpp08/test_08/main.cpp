@@ -1,28 +1,13 @@
 #include <iostream>
-#include <vector>
+#include <stack>
 
 int main ()
 {
-  std::vector<int> myvector (3);
-  std::vector<int>::iterator it;
+  std::stack<int, std::stack<int> > st;
+  st.push(56); 
+  st.push(44);
+  st.push(5);
 
-//   it = myvector.begin();
-
-//   myvector.insert (it,1,300);
-
-  // "it" no longer valid, get a new one:
-//   it = myvector.begin();
-
-//   std::vector<int> anothervector (2,400);
-//   myvector.insert (it+2,anothervector.begin(),anothervector.end());
-
-//   int myarray [] = { 501,502,503 };
-//   myvector.insert (myvector.begin(), myarray, myarray+3);
-
-  std::cout << "myvector contains:";
-  for (it=myvector.begin(); it<myvector.end(); it++)
-    std::cout << ' ' << &it;
-  std::cout << '\n';
 
   return 0;
 }
