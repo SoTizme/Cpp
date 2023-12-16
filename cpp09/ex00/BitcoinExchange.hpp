@@ -6,7 +6,7 @@
 /*   By: shilal <shilal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 09:18:17 by shilal            #+#    #+#             */
-/*   Updated: 2023/12/14 18:04:17 by shilal           ###   ########.fr       */
+/*   Updated: 2023/12/16 14:41:38 by shilal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,12 +22,15 @@ class BitcoinExchange
 {
     private:
         std::ifstream file;
+        std::ifstream data;
+        std::string line;
     public:
         BitcoinExchange(std::string FileName);
         ~BitcoinExchange();
 
+    void check_first_line(std::string str);
+    void ReadFileCsv();
     void ReadFile();
-    void check_first_line();
 };
 
 void    is_Directory(char *path);
