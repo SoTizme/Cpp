@@ -66,6 +66,8 @@
         "utility": "cpp",
         "vector": "cpp",
         "*.tpp": "cpp",
-        "filesystem": "cpp"
+        "filesystem": "cpp",
+        "__tree": "cpp",
+        "map": "cpp"
     }
 }

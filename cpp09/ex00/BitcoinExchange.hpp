@@ -6,7 +6,7 @@
 /*   By: shilal <shilal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 09:18:17 by shilal            #+#    #+#             */
-/*   Updated: 2023/12/17 22:56:25 by shilal           ###   ########.fr       */
+/*   Updated: 2023/12/18 13:53:06 by shilal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,21 +18,30 @@
 #include <fstream>
 #include <sstream>
 #include <sys/stat.h>
+#include <map>
 
 class BitcoinExchange
 {
     private:
+        std::multimap<std::string,double> CscData;
         std::ifstream file;
         std::ifstream data;
         std::string line;
+        int year, month ,days;
+
     public:
         BitcoinExchange(std::string FileName);
         ~BitcoinExchange();
 
-    void check_first_line(std::string str);
-    double CheckPrice(std::string exchange);
-    int  CheckDate(std::string date);
+    int last_day(int month, int year);
+    void SplitDate(std::string s);
+
+    std::string  CheckDateCsv(std::string date);
+    double CheckPriceCsv(std::string exchange);
     void ReadFileCsv();
+
+    void  CheckNumber(std::string nmbr, std::string date);
+    void  CheckDate(std::string date);
     void ReadFile();
 };
 

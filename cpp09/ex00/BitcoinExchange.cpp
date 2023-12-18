@@ -6,7 +6,7 @@
 /*   By: shilal <shilal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 09:18:13 by shilal            #+#    #+#             */
-/*   Updated: 2023/12/17 23:57:24 by shilal           ###   ########.fr       */
+/*   Updated: 2023/12/18 16:43:50 by shilal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,13 @@ BitcoinExchange::BitcoinExchange(std::string FileName){
     if (!data.is_open())
         throw std::runtime_error("Error: thers's no file csv");
     ReadFileCsv();
+    // for (std::multimap<std::string, double>::iterator itr = CscData.begin(); itr != CscData.end(); ++itr)
+    //     std::cout << '|' << itr->first << "| " << itr->second << std::endl;
 
     file.open(FileName);
     if (!file.is_open())
         throw std::runtime_error("Error: could not open file.");
-    //ReadFile();
+    ReadFile();
 }
 
 BitcoinExchange::~BitcoinExchange(){
@@ -32,83 +34,99 @@ BitcoinExchange::~BitcoinExchange(){
 
 // --------------------- Members functions :
 
-void split(std::string line){
-    for (size_t i = 0; i < line.size(); i++){
-        size_t j = line.find('|');
-        line.erase(j, 1);
-        std::cout << line << std::endl;
+int BitcoinExchange::last_day(int month, int year){
+
+    if (month == 4 || month == 6 || month == 9 || month == 11)
+        return 30;
+    else if (month == 2){
+        if ((year % 4 == 0) || (year % 400 == 0))
+            return 29;
+        else
+            return 28;
     }
+    else
+        return 31;
 }
 
-double    BitcoinExchange::CheckPrice(std::string price){
+void    BitcoinExchange::SplitDate(std::string s){
+    std::stringstream ss(s);
+    ss >> year >> month >> days;
+    month *= -1;
+    days *= -1;
+}
 
-    if(price.find_first_not_of("1234567890. ") != std::string::npos)
+double    BitcoinExchange::CheckPriceCsv(std::string price){
+    if (price.find_first_not_of("1234567890. ") != std::string::npos)
         throw std::runtime_error("Error : data.csv : price number is invalid");
     return (atof(price.c_str()));
 }
 
-int last_day(int month, int year){
-    int num_days = 0;
-    if(month==1||month==3||month==5||month==7|| month==8|| month==10|| month==12)
-        num_days=31;
-    else if(month==2)
-    {
-        if((year%4==0) || (year%400==0))
-            num_days=29;
-        else
-            num_days=28;
-    }
-    else
-        num_days=30;
-    return num_days;
-}
-
-int    BitcoinExchange::CheckDate(std::string s){
+std::string    BitcoinExchange::CheckDateCsv(std::string s){
     if (s.size() != 10 || s.find_first_not_of("1234567890-") != std::string::npos)
         throw std::runtime_error("Error : data.csv : invalid format of date");
-    std::stringstream ss(s);
-    int year, month ,days;
-    ss >> year >> month >> days;
-    month *= -1;
-    days *= -1;
-    if (year < 2009)
+    SplitDate(s);
+    if (year < 1)
         throw std::runtime_error("Error : data.csv : Invalid year");
-    if (month > 12 || month < 1)
+    if (month < 1 || month > 12)
         throw std::runtime_error("Error : data.csv : Invalid month");
     if (days > last_day(month, year) || days < 1)
         throw std::runtime_error("Error : data.csv : Invalid day");
-    std::cout << year << ' '<< month << ' ' << days << " == "<<(year * 365) + (month * 30.4167) + days <<'\n';
-    return ((year * 365) + (month * 30.4167) + days);
+    return (s);
 }
 
 void BitcoinExchange::ReadFileCsv(){
+
+    std::string date;
     double price = 0;
-    int days = 0;
+
     std::getline(data, line);
     if (line != "date,exchange_rate")
         throw std::runtime_error("Error : data.csv");
-     while (std::getline(data, line)){
-        days = CheckDate(line.substr(0,line.find(',')));
-        price = CheckPrice(line.substr(line.find(',') + 1, line.size()));
-        // std::cout << price << std::endl;
-     }
+    while (std::getline(data, line)) {
+        date = CheckDateCsv(line.substr(0,line.find(',')));
+        price = CheckPriceCsv(line.substr(line.find(',') + 1, line.size()));
+        CscData.insert(std::pair<std::string,double>(date,price));
+    }
 }
 
-void BitcoinExchange::check_first_line(std::string str){
+// ---------------------------------------------------------------------------------
+
+void    BitcoinExchange::CheckNumber(std::string nmbr, std::string date){
+    if (nmbr.find_first_not_of("1234567890.-") != std::string::npos)
+        std::cout << "Error: bad input => " << nmbr << std::endl;
+    else
+    {
+        double n = atof(nmbr.c_str());
+        if (n > 1000)
+            std::cout << "Error: too large a number." << std::endl;
+        else if (n < 0)
+            std::cout << "Error: not a positive number." << std::endl;
+        else
+            std::cout << date << " => " << nmbr << std::endl;
+    }
+}
+
+void    BitcoinExchange::CheckDate(std::string s){
+    if (s.size() != 10 || s.find_first_not_of("1234567890-") != std::string::npos)
+        throw std::runtime_error("Error : data.csv : invalid format of date");
+    SplitDate(s);
+    if (year < 2009 || (month > 12 || month < 1) || (days > last_day(month, year) || days < 1))
+        std::cout << "Error: bad input => " << s << std::endl;
+    else
+        CheckNumber(line.substr(line.find('|') + 2, line.size()), s);
+}
+
+void BitcoinExchange::ReadFile(){
 
     while (std::getline(file, line)){
         if (line[0] && !line.find_first_not_of("\n\t\v\f\r "))
             break;
     }
-    if (line != str)
-        throw std::runtime_error("Error : file");
-}
+    if (line != "date | value")
+        throw std::runtime_error(("Error : bad input => " + line));
 
-void BitcoinExchange::ReadFile(){
-    check_first_line("date | value");
-    while (std::getline(file, line) && line[0]){
-        std::cout << line <<std::endl;
-    }
+    while (std::getline(file, line) && line[0])
+        CheckDate(line.substr(0,line.find(' ')));
 }
 
 // --------------------- Functions:
