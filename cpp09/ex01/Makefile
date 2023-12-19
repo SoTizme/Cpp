@@ -1,6 +1,6 @@
-NAME = btc
-SRC = main.cpp BitcoinExchange.cpp
-HFL = BitcoinExchange.hpp
+NAME = RPN
+SRC = main.cpp RPN.cpp
+HFL = RPN.hpp
 
 RM = rm -f
 CC = c++
