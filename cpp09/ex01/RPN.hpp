@@ -6,7 +6,7 @@
 /*   By: shilal <shilal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 13:52:57 by shilal            #+#    #+#             */
-/*   Updated: 2023/12/20 16:00:20 by shilal           ###   ########.fr       */
+/*   Updated: 2023/12/21 10:27:00 by shilal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,9 @@ class RPN {
     public :
         RPN(std::string s);
         ~RPN();
-    void CalculIt(int n, int nb, std::string opertor);
+    
+    void CheckIt(std::string s);
+    void CalculIt(int n, std::string opertor);
 };
 
 #endif

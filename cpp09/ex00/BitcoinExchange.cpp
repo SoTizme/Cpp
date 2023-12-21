@@ -6,7 +6,7 @@
 /*   By: shilal <shilal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 09:18:13 by shilal            #+#    #+#             */
-/*   Updated: 2023/12/19 18:55:37 by shilal           ###   ########.fr       */
+/*   Updated: 2023/12/21 10:29:24 by shilal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,6 @@ BitcoinExchange::BitcoinExchange(std::string FileName){
         data.close();
         throw std::runtime_error("Error: file data.csv have no data");
     }
-
-    // for (std::multimap<double, double>::iterator itr = CscData.begin(); itr != CscData.end(); ++itr)
-    //     std::cout << '|' << itr->first << "| " << itr->second << std::endl;
 
     file.open(FileName);
     if (!file.is_open())
