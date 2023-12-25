@@ -6,16 +6,29 @@
 /*   By: shilal <shilal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 13:52:54 by shilal            #+#    #+#             */
-/*   Updated: 2023/12/22 14:26:31 by shilal           ###   ########.fr       */
+/*   Updated: 2023/12/25 19:07:38 by shilal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "RPN.hpp"
 
+RPN::RPN(){}
+
 RPN::RPN(std::string s) : line(s) {
     if (line.empty() || line.find_first_not_of("0123456789 +*/-") != std::string::npos)
         throw std::runtime_error("Error");
-    CheckIt(s);
+}
+
+RPN::RPN(const RPN& clap){
+    *this = clap;
+}
+
+RPN& RPN::operator=(const RPN& clap){
+    if (&clap != this){
+        list = clap.list;
+        line = clap.line;
+    }
+    return (*this);
 }
 
 RPN::~RPN(){}
@@ -37,6 +50,7 @@ void    RPN::CalculIt(int n, std::string opertor){
 }
 
 void    RPN::CheckIt(std::string s){
+
     std::string check;
     size_t i = -1;
     while (++i < line.size()){

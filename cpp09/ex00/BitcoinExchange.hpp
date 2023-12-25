@@ -6,7 +6,7 @@
 /*   By: shilal <shilal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 09:18:17 by shilal            #+#    #+#             */
-/*   Updated: 2023/12/19 18:05:03 by shilal           ###   ########.fr       */
+/*   Updated: 2023/12/25 19:53:25 by shilal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,25 +27,31 @@ class BitcoinExchange
         std::ifstream file;
         std::ifstream data;
         std::string line;
+        std::string FileName;
         int year, month ,days;
 
     public:
+        BitcoinExchange();
         BitcoinExchange(std::string FileName);
+        BitcoinExchange(const BitcoinExchange& clap);
+        BitcoinExchange& operator=(const BitcoinExchange& clap);
         ~BitcoinExchange();
 
-    int last_day(int month, int year);
-    bool SplitDate(std::string s);
-    bool Isnumber(std::string s);
-    void Error(std::string s);
+    private:
+        int last_day(int month, int year);
+        bool SplitDate(std::string s);
+        bool Isnumber(std::string s);
+        void Error(std::string s);
 
-    double CheckDateCsv(std::string date);
-    double CheckPriceCsv(std::string exchange);
-    void   ReadFileCsv();
+        double CheckDateCsv(std::string date);
+        double CheckPriceCsv(std::string exchange);
+        void   ReadFileCsv();
 
-    void  CheckNumber(std::string nmbr, std::string date, double key);
-    double CalculateExchange(double key);
-    void  CheckDate(std::string date);
-    void ReadFile();
+        void  CheckNumber(std::string nmbr, std::string date, double key);
+        double CalculateExchange(double key);
+        void  CheckDate(std::string date);
+    public:
+        void ReadFile();
 };
 
 void    is_Directory(char *path);

@@ -6,7 +6,7 @@
 /*   By: shilal <shilal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/23 12:52:35 by shilal            #+#    #+#             */
-/*   Updated: 2023/12/24 23:22:05 by shilal           ###   ########.fr       */
+/*   Updated: 2023/12/25 20:07:01 by shilal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,9 @@ int main(int ac, char **av)
             throw std::runtime_error("Error: Add the numbers");
         if (!AllIsDigits(av))
             throw std::runtime_error("Error: Not a valid arguments");
-        PmergeMe obj;
-        obj.SetVec(av + 1, ac - 1);
-        obj.Setdeque(av + 1, ac - 1);
+        PmergeMe obj(av + 1, ac - 1);
+        obj.SetVec();
+        obj.Setdeque();
     }
     catch(const std::exception& e) {
         std::cerr << e.what() << '\n';

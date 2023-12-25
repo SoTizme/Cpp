@@ -6,7 +6,7 @@
 /*   By: shilal <shilal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 13:52:57 by shilal            #+#    #+#             */
-/*   Updated: 2023/12/21 10:27:00 by shilal           ###   ########.fr       */
+/*   Updated: 2023/12/25 20:01:59 by shilal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,12 +22,18 @@ class RPN {
     private :
         std::stack<int> list;
         std::string line;
+
     public :
+        RPN();
         RPN(std::string s);
+        RPN(const RPN& clap);
+        RPN& operator=(const RPN& clap);
         ~RPN();
     
     void CheckIt(std::string s);
-    void CalculIt(int n, std::string opertor);
+
+    private :
+        void CalculIt(int n, std::string opertor);
 };
 
 #endif

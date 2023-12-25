@@ -6,7 +6,7 @@
 /*   By: shilal <shilal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 09:18:13 by shilal            #+#    #+#             */
-/*   Updated: 2023/12/21 10:29:24 by shilal           ###   ########.fr       */
+/*   Updated: 2023/12/25 20:00:57 by shilal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,25 @@
 
 // --------------------------------- Canonical form --------------------------------
 
-BitcoinExchange::BitcoinExchange(std::string FileName){
-    data.open("data.csv");
-    if (!data.is_open())
-        throw std::runtime_error("Error: thers's no file csv");
-    ReadFileCsv();
-    if (CscData.empty()){
-        data.close();
-        throw std::runtime_error("Error: file data.csv have no data");
-    }
+BitcoinExchange::BitcoinExchange(): FileName(""), year(0), month(0), days(0){}
 
-    file.open(FileName);
-    if (!file.is_open())
-        throw std::runtime_error("Error: could not open file.");
-    ReadFile();
+BitcoinExchange::BitcoinExchange(std::string str): FileName(str), year(0), month(0), days(0){
+    ReadFileCsv();
+}
+
+BitcoinExchange::BitcoinExchange(const BitcoinExchange& clap){
+    *this = clap;
+}
+
+BitcoinExchange& BitcoinExchange::operator=(const BitcoinExchange& clap){
+
+    CscData = clap.CscData;
+    line = clap.line;
+    FileName = clap.FileName;
+    year = clap.year;
+    month = clap.month;
+    days = clap.days;
+    return (*this);
 }
 
 BitcoinExchange::~BitcoinExchange(){
@@ -74,7 +79,7 @@ bool    BitcoinExchange::SplitDate(std::string s)
     getline(ss, s1, '-');
     getline(ss, s2, '-');
     ss >> s3;
-    if  (s1.size() != 4 || s2.size() != 2 || s3.size() != 2)
+    if (s1.size() != 4 || s2.size() != 2 || s3.size() != 2)
         return (false);
     year = atof(s1.c_str());
     month = atof(s2.c_str());
@@ -107,6 +112,10 @@ void BitcoinExchange::ReadFileCsv(){
     double date = 0;
     double price = 0;
 
+    data.open("data.csv");
+    if (!data.is_open())
+        throw std::runtime_error("Error: thers's no file csv");
+
     std::getline(data, line);
     if (line != "date,exchange_rate")
         Error("Error : data.csv");
@@ -114,6 +123,10 @@ void BitcoinExchange::ReadFileCsv(){
         date = CheckDateCsv(line.substr(0,line.find(',')));
         price = CheckPriceCsv(line.substr(line.find(',') + 1));
         CscData.insert(std::pair<double,double>(date,price));
+    }
+    if (CscData.empty()){
+        data.close();
+        throw std::runtime_error("Error: file data.csv have no data");
     }
 }
 
@@ -156,6 +169,10 @@ void    BitcoinExchange::CheckDate(std::string s) {
 
 void BitcoinExchange::ReadFile(){
 
+    file.open(FileName);
+    if (!file.is_open())
+        throw std::runtime_error("Error: could not open file.");
+
     while (std::getline(file, line)) {
         if (line[0] && !line.find_first_not_of("\n\t\v\f\r "))
             break;
@@ -168,15 +185,4 @@ void BitcoinExchange::ReadFile(){
 
     while (std::getline(file, line) && line[0])
         CheckDate(line.substr(0,line.find(' ')));
-}
-
-// ----------------------------------------------------------------------------------
-
-void    is_Directory(char *path){
-
-    struct stat directory;
-    if (stat(path ,&directory) == -1)
-        throw std::runtime_error("Error : Path dosnt exist");
-    if (S_ISDIR(directory.st_mode))
-        throw std::runtime_error("Error : is Directory");
 }
