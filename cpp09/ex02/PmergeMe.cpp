@@ -6,7 +6,7 @@
 /*   By: shilal <shilal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/23 12:52:38 by shilal            #+#    #+#             */
-/*   Updated: 2023/12/25 20:05:47 by shilal           ###   ########.fr       */
+/*   Updated: 2023/12/26 13:27:20 by shilal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,11 @@ PmergeMe::PmergeMe(): len(0){
 PmergeMe::PmergeMe(char **av, size_t size) : len(size){
     ToContainer<std::vector<std::pair<size_t, size_t> > >(Vdata, av);
     ToContainer<std::deque<std::pair<size_t, size_t> > >(Ddata, av);
-    if (len % 2 != 0)
+    if (len % 2 != 0){
         Num = atol(av[len - 1]);
+        if (Num > INT_MAX)
+            throw std::runtime_error("Error: Not a valid Unsigned int argument");
+    }
 }
 
 PmergeMe::PmergeMe(PmergeMe const& clap){
@@ -42,10 +45,15 @@ PmergeMe::~PmergeMe(){}
 
 
 template <typename T> void PmergeMe::ToContainer(T& data, char **av){
-
+    size_t n1;
+    size_t n2;
     size_t i = 0;
     while (i+1 < len) {
-        data.push_back(std::make_pair(atol(av[i]),atol(av[i+1])));
+        n1 = atol(av[i]);
+        n2 = atol(av[i+1]);
+        if (n1 > INT_MAX || n2 > INT_MAX)
+            throw std::runtime_error("Error: Not a valid Unsigned int argument");
+        data.push_back(std::make_pair(n1,n2));
         i+=2;
     }
 }
@@ -61,23 +69,15 @@ template <typename T, typename P> void PmergeMe::FunctionSort(P& data,T& contine
     }
     std::sort(continer.begin(), continer.end());
     typename T::iterator nb = Second.begin();
-    typename T::iterator it = continer.begin();
+    typename T::iterator it;
     while (nb != Second.end()){
-        if (it == continer.end() || *nb < *it) {
-            continer.insert(it--, *nb);
-            it = continer.begin();
-            nb++;
-            continue;
-        }
-        it++;
+        it = std::upper_bound(continer.begin(), continer.end(), *nb);
+        continer.insert(it, *nb);
+        nb++;
     }
-    if (len % 2 != 0) {
-        it = continer.begin();
-        for ( ; it != continer.end(); it++) {
-            if (Num < *it)
-                break;
-        }
-        continer.insert(it--, Num);
+    if (len % 2 != 0 ) {
+        it = std::upper_bound(continer.begin(), continer.end(), Num);
+        continer.insert(it, Num);
     }
     TimeFinished = (clock() - t)/((double)CLOCKS_PER_SEC);
 }

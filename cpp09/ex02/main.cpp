@@ -6,7 +6,7 @@
 /*   By: shilal <shilal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/23 12:52:35 by shilal            #+#    #+#             */
-/*   Updated: 2023/12/25 20:07:01 by shilal           ###   ########.fr       */
+/*   Updated: 2023/12/25 21:07:27 by shilal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,8 @@ bool AllIsDigits(char **av){
 int main(int ac, char **av)
 {
     try {
-        if (ac <= 1)
-            throw std::runtime_error("Error: Add the numbers");
+        if (ac <= 2)
+            throw std::runtime_error("Error: Add numbers & more than One number");
         if (!AllIsDigits(av))
             throw std::runtime_error("Error: Not a valid arguments");
         PmergeMe obj(av + 1, ac - 1);
