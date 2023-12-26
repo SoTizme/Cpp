@@ -6,7 +6,7 @@
 /*   By: shilal <shilal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 09:18:13 by shilal            #+#    #+#             */
-/*   Updated: 2023/12/25 20:00:57 by shilal           ###   ########.fr       */
+/*   Updated: 2023/12/26 13:51:18 by shilal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,7 +114,7 @@ void BitcoinExchange::ReadFileCsv(){
 
     data.open("data.csv");
     if (!data.is_open())
-        throw std::runtime_error("Error: thers's no file csv");
+        return ;
 
     std::getline(data, line);
     if (line != "date,exchange_rate")
@@ -148,7 +148,10 @@ void    BitcoinExchange::CheckNumber(std::string nmbr, std::string date, double 
         double n = atof(nmbr.c_str());
         if (n > 1000) { std::cout << "Error: too large a number." << std::endl; }
         else if (n < 0) { std::cout << "Error: not a positive number." << std::endl; }
-        else { std::cout << date << " => " << n * CalculateExchange(key) << std::endl; }
+        else if (CscData.begin() != CscData.end()){
+            std::cout << date << " => " << n * CalculateExchange(key) << std::endl;
+        }
+        else { std::cout << date << " => " << n << std::endl; }
     }
 }
 
@@ -161,7 +164,7 @@ void    BitcoinExchange::CheckDate(std::string s) {
     key = (year * 365) + (month * 30.4167) + days;
     if ((month > 12 || month < 1) || (days > last_day(month, year) || days < 1))
         std::cout << "Error: bad input => " << s << std::endl;
-    else if (key < CscData.begin()->first)
+    else if (CscData.begin() != CscData.end() && key < CscData.begin()->first)
         std::cout << "Error: Too Low date => " << s << std::endl;
     else
         CheckNumber(line.substr(line.find("| ") + 2), s, key);
