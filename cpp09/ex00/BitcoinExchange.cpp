@@ -6,7 +6,7 @@
 /*   By: shilal <shilal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 09:18:13 by shilal            #+#    #+#             */
-/*   Updated: 2023/12/26 13:51:18 by shilal           ###   ########.fr       */
+/*   Updated: 2023/12/26 19:03:32 by shilal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -155,17 +155,18 @@ void    BitcoinExchange::CheckNumber(std::string nmbr, std::string date, double 
     }
 }
 
-void    BitcoinExchange::CheckDate(std::string s) {
+void    BitcoinExchange::CheckDate(std::string s, std::string line) {
+
     double key = 0;
     if (s.size() != 10 || s.find_first_not_of("1234567890-") != std::string::npos || !SplitDate(s)){
-        std::cout << "Error: bad input => " << s << std::endl;
+        std::cout << "Error: bad input => " << line << std::endl;
         return ;
     }
     key = (year * 365) + (month * 30.4167) + days;
     if ((month > 12 || month < 1) || (days > last_day(month, year) || days < 1))
-        std::cout << "Error: bad input => " << s << std::endl;
+        std::cout << "Error: bad input => " << line << std::endl;
     else if (CscData.begin() != CscData.end() && key < CscData.begin()->first)
-        std::cout << "Error: Too Low date => " << s << std::endl;
+        std::cout << "Error: Too Low date => " << line << std::endl;
     else
         CheckNumber(line.substr(line.find("| ") + 2), s, key);
 }
@@ -176,16 +177,16 @@ void BitcoinExchange::ReadFile(){
     if (!file.is_open())
         throw std::runtime_error("Error: could not open file.");
 
-    while (std::getline(file, line)) {
-        if (line[0] && !line.find_first_not_of("\n\t\v\f\r "))
-            break;
-    }
-
+    std::getline(file, line);
     if (line != "date | value") {
         file.close(); data.close();
         throw std::runtime_error(("Error : bad input => " + line));
     }
-
-    while (std::getline(file, line) && line[0])
-        CheckDate(line.substr(0,line.find(' ')));
+    if (file.eof()){
+        file.close(); data.close();
+        throw std::runtime_error(("Error : No DATA"));
+    }
+    while (std::getline(file, line))
+        CheckDate(line.substr(0,line.find(' ')), line);
+        
 }

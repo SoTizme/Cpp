@@ -6,7 +6,7 @@
 /*   By: shilal <shilal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/23 12:52:38 by shilal            #+#    #+#             */
-/*   Updated: 2023/12/26 13:27:20 by shilal           ###   ########.fr       */
+/*   Updated: 2023/12/26 19:49:23 by shilal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,16 +58,19 @@ template <typename T> void PmergeMe::ToContainer(T& data, char **av){
     }
 }
 
-template <typename T, typename P> void PmergeMe::FunctionSort(P& data,T& continer, clock_t t){
+template <typename T, typename P> void PmergeMe::FunctionSort(P& data,T& continer){
 
     T Second;
+    clock_t t = clock();
     for (typename P::iterator it = data.begin(); it != data.end(); it++) {
         if (it->first > it->second)
             std::swap(it->first, it->second);
         continer.push_back(it->first);
         Second.push_back(it->second);
     }
+    
     std::sort(continer.begin(), continer.end());
+
     typename T::iterator nb = Second.begin();
     typename T::iterator it;
     while (nb != Second.end()){
@@ -92,8 +95,7 @@ void PmergeMe::SetVec(){
         std::cout << Num;
     std::cout << std::endl;
     
-    clock_t t = clock();
-    FunctionSort<std::vector<size_t>, std::vector<std::pair<size_t, size_t> > >(Vdata, vec, t);
+    FunctionSort<std::vector<size_t>, std::vector<std::pair<size_t, size_t> > >(Vdata, vec);
 
     std::cout << "After:  ";
     for (std::vector<size_t>::iterator it = vec.begin(); it != vec.end(); it++)
@@ -107,8 +109,7 @@ void PmergeMe::SetVec(){
 
 void PmergeMe::Setdeque(){
 
-    clock_t t = clock();
-    FunctionSort<std::deque<size_t> ,std::deque<std::pair<size_t, size_t> > >(Ddata, deque, t);
+    FunctionSort<std::deque<size_t> ,std::deque<std::pair<size_t, size_t> > >(Ddata, deque);
 
     std::cout << "Time to process a range of "<< len << " elements with std::deque : "; 
     std::cout << std::fixed << TimeFinished << " s" << std::endl;

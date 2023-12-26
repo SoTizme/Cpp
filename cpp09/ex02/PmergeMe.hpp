@@ -6,7 +6,7 @@
 /*   By: shilal <shilal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/23 12:52:43 by shilal            #+#    #+#             */
-/*   Updated: 2023/12/25 18:21:09 by shilal           ###   ########.fr       */
+/*   Updated: 2023/12/26 19:42:00 by shilal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ class PmergeMe {
     void Setdeque();
 
     template <typename T> void ToContainer(T& data, char **av);
-    template <typename T, typename P> void FunctionSort(P& data,T& First, clock_t t);
+    template <typename T, typename P> void FunctionSort(P& data,T& First);
 };
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: shilal <shilal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 09:18:17 by shilal            #+#    #+#             */
-/*   Updated: 2023/12/25 19:53:25 by shilal           ###   ########.fr       */
+/*   Updated: 2023/12/26 18:29:22 by shilal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ class BitcoinExchange
 
         void  CheckNumber(std::string nmbr, std::string date, double key);
         double CalculateExchange(double key);
-        void  CheckDate(std::string date);
+        void  CheckDate(std::string date, std::string line);
     public:
         void ReadFile();
 };
