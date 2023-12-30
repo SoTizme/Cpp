@@ -18,9 +18,24 @@ Namespace provide the space where we can define or declare identifier i.e. varia
 - WRITE : the stream insertion operator (<<)
 - READ : the stream extraction operator (>>)
 
-### scope resolution operator “::” 
+### Scope resolution operator “::” 
   Here std is used in front of cin and cout along with scope resolution operator, which indicates that the object cin and cout are defined inside the namespace whose name is std. The std is the standard library, and both cin and cout are defined inside this scope.
 
+### Cout : 
+  The cout object in C++ is an object of class iostream. It is defined in the iostream header file. It is used to display the output to the standard output device i.e. monitor. It is associated with the standard C output stream stdout. The data needed to be displayed on the screen is inserted in the standard output stream (cout) using the insertion operator(<<).
+
+### Header:
+	- hpp : C++ Headers.
+  - h : C/C++ compatible or pure C Headers.
+
+### Classes :
+  Classes are an expanded concept of data structures: like data structures, they can contain data members, but they can also contain functions as members.
+- public: members can be accessed outside the class.
+- private: members cannot be accessed outside the class.
+- protected: members cannot be accessed(viewed) from outside the class, but can be accessed in inherited classes(subclasses).
+
+### This Pointe :
+Every object has a special pointer this which points to the object itself.
 
 ## Demo
 Here is a working live demo :  https://iharsh234.github.io/WebApp/
