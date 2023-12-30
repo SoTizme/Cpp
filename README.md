@@ -79,16 +79,6 @@ Ad-hoc Polymorphism, also called as Overloading Ad-hoc Polymorphism allows funct
 is a method of representing fractional numbers by storing a fixed number of digits of their fractional part.
 
 
-
-## Demo
-Here is a working live demo :  https://iharsh234.github.io/WebApp/
-
-
-## Site
-
-### Landing Page
-Currently it is working on all NSE (India) Stocks, BSE (India) Stocks Symbol will be added soon.
-
 ![](https://iharsh234.github.io/WebApp/images/demo/web_app_face.JPG)
 
 ### Query Filled Form
