@@ -4,7 +4,7 @@ The goal of these modules is to introduce you to Object-Oriented Programming.
 This will be the starting point of your C++ journey.
 Many languages are recommended to learn OOP.
 
-## Cpp 00 :
+## Cpp 00 - 01 :
 
 ### Namespace :
   A namespace is a feature that allows you to organize and encapsulate code into logical groups
@@ -36,6 +36,49 @@ Namespace provide the space where we can define or declare identifier i.e. varia
 
 ### This Pointe : (this->)
 Every object has a special pointer this which points to the object itself.
+
+
+## Cpp 02 :
+
+### Canonical Form :  https://www.shiksha.com/online-courses/articles/constructors-in-cpp/
+
+- Default Constructor : 
+	class can include a special function called constructor, which is automatically called whenever a new object of this class is created. This constructor function must have the same name as the class, and cannot have any return type; not even void.
+
+- Copy constructor :
+  	A copy constructor is a member function that initializes an object using another object of the same class. In simple terms, a constructor which creates an object by initializing it with an object of the same class, which has been created previously, is known as a copy constructor.
+  
+- Assignment Operator.
+- 
+- Destructor :
+	The destructor fulfills the opposite functionality. It is automatically called when an object is destroyed, either because its scope of existence has finished (for example, if it was defined as a local object within a function and the function ends) or because it is an object dynamically assigned and it is released using the operator delete.
+
+### Copy Constructor vs Assignment Operator in C++ :
+A copy constructor is used to initialize a previously uninitialized object from some other object's data.
+An assignment operator is used to replace the data of a previously initialized object with some other object's data.
+
+### Dummy parameter :
+The int parameter is a dummy parameter used to differentiate between prefix and postfix versions of the operators (++a | - -a | a++ | a- - ).
+
+
+### Static : 
+1. Local Static: static var inside of a function: value sticks around throughout program lifetime so the same value sticks around if you reRun the function (only gets initialized once.
+2. Static globally scoped var / func: Makes it visible only in this file, normally globals would be visible everywhere in program when linked.
+3. Static Class Vars or Functions: belongs to root class, not instances of it, same values shared across all instances (so cant access instance variables/'this' from static methods).
+
+### Ad-hoc Polymorphism :	
+Ad-hoc Polymorphism, also called as Overloading Ad-hoc Polymorphism allows functions having the same name to act differently for different types.
+
+### Const member function:
+- When a function is declared as const, it can be called on any type of object, const object as well as non-const objects.
+- Whenever an object is declared as const, it needs to be initialized at the time of declaration. However, the object initialization while declaration is possible only with the help of constructors.
+- A function becomes const when the const keyword is used in the function’s declaration. The idea of const functions is not to allow them to modify the object on which they are called.
+- It is recommended practice to make as many functions const as possible so that accidental changes to objects are avoided.
+
+### Fixed-point: 
+is a method of representing fractional numbers by storing a fixed number of digits of their fractional part.
+
+
 
 ## Demo
 Here is a working live demo :  https://iharsh234.github.io/WebApp/
