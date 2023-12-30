@@ -25,7 +25,7 @@ Namespace provide the space where we can define or declare identifier i.e. varia
   The cout object in C++ is an object of class iostream. It is defined in the iostream header file. It is used to display the output to the standard output device i.e. monitor. It is associated with the standard C output stream stdout. The data needed to be displayed on the screen is inserted in the standard output stream (cout) using the insertion operator(<<).
 
 ### Header:
-	- hpp : C++ Headers.
+- hpp : C++ Headers.
   - h : C/C++ compatible or pure C Headers.
 
 ### Classes :
