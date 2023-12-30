@@ -34,7 +34,7 @@ Namespace provide the space where we can define or declare identifier i.e. varia
 - private: members cannot be accessed outside the class.
 - protected: members cannot be accessed(viewed) from outside the class, but can be accessed in inherited classes(subclasses).
 
-### This Pointe :
+### This Pointe : (this->)
 Every object has a special pointer this which points to the object itself.
 
 ## Demo
