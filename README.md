@@ -87,8 +87,18 @@ is a method of representing fractional numbers by storing a fixed number of digi
 - Hierarchical Inheritance.
 - Hybrid Inheritance.
 
+![](./utilReademe/TypesOfInheritanceInCpp.png)
 
-![]([https://iharsh234.github.io/WebApp/images/demo/web_app_face.JPG](https://sp-ao.shortpixel.ai/client/to_auto,q_glossy,ret_img,w_800,h_445/https://simplesnippets.tech/wp-content/uploads/2018/03/types_of_inheritance_in_cpp-800x445.png))
+### Why can't inherit constructors?
+
+	Constructors are different from other class methods in that they create new objects, whereas other methods are invoked by existing objects. This is one reason constructors aren't inherited.
+
+### Private vs Protected :
+
+- Private members are only accessible within the class defining them.
+- Protected members are accessible in the class that defines them and in classes that inherit from that class.
+
+
 
 ### Query Filled Form
 ![](https://iharsh234.github.io/WebApp/images/demo/demo_query.JPG)
