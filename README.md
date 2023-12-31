@@ -91,7 +91,7 @@ is a method of representing fractional numbers by storing a fixed number of digi
 
 ### Why can't inherit constructors?
 
-	Constructors are different from other class methods in that they create new objects, whereas other methods are invoked by existing objects. This is one reason constructors aren't inherited.
+Constructors are different from other class methods in that they create new objects, whereas other methods are invoked by existing objects. This is one reason constructors aren't inherited.
 
 ### Private vs Protected :
 
