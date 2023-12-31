@@ -78,8 +78,17 @@ Ad-hoc Polymorphism, also called as Overloading Ad-hoc Polymorphism allows funct
 ### Fixed-point: 
 is a method of representing fractional numbers by storing a fixed number of digits of their fractional part.
 
+## Cpp 03 :
 
-![](https://iharsh234.github.io/WebApp/images/demo/web_app_face.JPG)
+### Types of inheritance :
+- Single Inheritance.
+- Multiple Inheritance.
+- Multilevel Inheritance.
+- Hierarchical Inheritance.
+- Hybrid Inheritance.
+
+
+![]([https://iharsh234.github.io/WebApp/images/demo/web_app_face.JPG](https://sp-ao.shortpixel.ai/client/to_auto,q_glossy,ret_img,w_800,h_445/https://simplesnippets.tech/wp-content/uploads/2018/03/types_of_inheritance_in_cpp-800x445.png))
 
 ### Query Filled Form
 ![](https://iharsh234.github.io/WebApp/images/demo/demo_query.JPG)
