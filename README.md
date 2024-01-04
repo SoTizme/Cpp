@@ -98,3 +98,52 @@ Constructors are different from other class methods in that they create new obje
 - Private members are only accessible within the class defining them.
 - Protected members are accessible in the class that defines them and in classes that inherit from that class.
 
+## Cpp 04 :
+
+### Virtual Table (vtable):
+For every class that contains virtual functions, the compiler constructs a virtual table. The vtable contains an entry for each virtual function accessible by the class and stores a pointer to its definition. Only the most specific function definition callable by the class is stored in the vtable.
+
+### Virtual: (it's just a general idea)
+When the term “virtual” is used , the function will be called based on object type not the pointer type.
+
+![](./utilReademe/vtable.png)
+
+When we use virtual in base_class destructor we tell the program to include the destructor of derived class in the Vtable; automatically when the derived class finishes he calls our destructor,and the base destructor that inherited from.
+
+## Cpp 05 :
+
+### Exception: 
+is a class in iostream that has many derived classes that can handle the Throw exception and give it a specific message with a  what() throw() (virtual function).
+
+## Cpp 06 :
+
+**Conversion operator(operator type_name): operator float() { return b_float; }**
+**Conversion Constructor: NameOfCLASS(NameOfCLASS) { return b_float; }.**
+
+
+#### uintptr_t:
+is an unsigned long integer type that is capable of storing a data pointer.
+
+#### implicit vs explicit:
+Implicit type conversion is done automatically by the compiler, while explicit type conversion is done manually by the programmer.
+
+### Casting Types:
+
+### Static cast : static_cast <dest_type> (source); (Compile_time)
+It does things like implicit conversions between types
+(such as int to float, or pointer to void*), and it can also call explicit conversion functions.
+
+### Dynamic_cast : dynamic_cast <dest_type> (source), (run_time)
+Is mainly used for safe downcasting at run time. To work on dynamic_cast there must be one virtual function in the base class. A dynamic_cast works only in a polymorphic (A class that declares or inherit s a virtual function is called a polymorphic class) base class because it uses this information to decide safe downcasting.
+
+### Reinterpret_cast : reinterpret_cast <dest_type> (source) (run_time)
+It is used to convert a pointer of some data type into a pointer of another data type, even if the data types before and after conversion are different.
+It does not check if the pointer type and data pointed by the pointer is the same or not.
+
+
+### Const_cast : ** const_cast <dest_type> (source) (run_time) ** 
+
+`` Static class :
+#### 1 . In C++, a "static class" has no meaning.
+The nearest thing is a class with only static methods and members.
+#### 2 . Using static methods will only limit you. ``
