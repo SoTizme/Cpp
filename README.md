@@ -106,7 +106,7 @@ For every class that contains virtual functions, the compiler constructs a virtu
 ### Virtual: (it's just a general idea)
 When the term “virtual” is used , the function will be called based on object type not the pointer type.
 
-![](./utilReademe/vtable.png)
+![](./utilReademe/vtable.jpeg)
 
 When we use virtual in base_class destructor we tell the program to include the destructor of derived class in the Vtable; automatically when the derived class finishes he calls our destructor,and the base destructor that inherited from.
 
