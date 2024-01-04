@@ -10,11 +10,11 @@ Many languages are recommended to learn OOP.
   A namespace is a feature that allows you to organize and encapsulate code into logical groups
 Namespace provide the space where we can define or declare identifier i.e. variable,method, classes.
 
-- stdio streams : Standard Input / Output Streams Library (iostream)
-- cin : Standard input stream (object)
-- cout : Standard output stream (object)
-- cerr : Standard output stream for errors (object)
-- clog : Standard output stream for logging (object)
+- Stdio streams : Standard Input / Output Streams Library (iostream)
+- Cin : Standard input stream (object)
+- Cout : Standard output stream (object)
+- Cerr : Standard output stream for errors (object)
+- Clog : Standard output stream for logging (object)
 - WRITE : the stream insertion operator (<<)
 - READ : the stream extraction operator (>>)
 
