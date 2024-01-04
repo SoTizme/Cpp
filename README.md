@@ -142,8 +142,10 @@ It does not check if the pointer type and data pointed by the pointer is the sam
 
 
 ### Const_cast : ** const_cast <dest_type> (source) (run_time) ** 
-
-`` Static class :
+const_cast is used to cast away the constness of variables. Following are some interesting facts about const_c.
+```
+Static class :
 #### 1 . In C++, a "static class" has no meaning.
 The nearest thing is a class with only static methods and members.
-#### 2 . Using static methods will only limit you. ``
+#### 2 . Using static methods will only limit you.
+```
